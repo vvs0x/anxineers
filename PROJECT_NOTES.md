@@ -14,8 +14,8 @@ Running log: decisions, versions, open questions, test results. Update this inst
 
 ## Verified versions
 - Unity 6.3 is an LTS release (Unity blog). Installed here: 6000.3.9f1.
-- Unity OpenXR Plugin: Meta docs recommend 1.15.1 for Unity 6 with Meta XR SDK v74+. Confirm in Package Manager.
-- Meta XR Core SDK: not pinned. Install the latest via Package Manager (Asset Store "My Assets" or Meta's npm registry). Record the version here after install.
+- Unity OpenXR Plugin: 1.16.1 installed (Meta docs recommend 1.15.1 or newer for Unity 6 with Meta XR SDK v74+). Oculus XR Plugin is intentionally not used.
+- Meta XR Core SDK: not installed yet. Phase 1 rig uses plain OpenXR and Input System. Install latest via Package Manager and record version here.
 - Meta XR Simulator: standalone app, no extra Unity package needed with OpenXR (Asset Store package is deprecated). Extra requirements on macOS, check before relying on it.
 
 ## Open questions
@@ -25,3 +25,10 @@ Running log: decisions, versions, open questions, test results. Update this inst
 
 ## Test results
 - (none yet)
+
+## XR config (Phase 1)
+- XR Plug-in Management: OpenXR enabled on the PC (Standalone) tab. Android tab not configured yet.
+- OpenXR interaction profile: Oculus Touch Controller Profile enabled (Standalone).
+- Scenes: Boot (loads Sandbox), Sandbox (XR rig, controller spheres, floor grid, 0.5 m cube, 1.8 m pillar), RoomPrototype (empty). Built via menu Anxineers > Phase 1.
+- Rig: tracked poses via Input System TrackedPoseDriver, floor tracking origin requested by XRTrackingOrigin. No locomotion.
+- Windows graphics API list was changed by Unity during setup (Direct3D11 only for Windows).
