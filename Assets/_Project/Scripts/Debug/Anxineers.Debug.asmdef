@@ -1,6 +1,6 @@
 {
     "name": "Anxineers.Debug",
-    "rootNamespace": "Anxineers.Debug",
+    "rootNamespace": "Anxineers.DebugTools",
     "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.UI"],
     "includePlatforms": [],
     "excludePlatforms": [],
