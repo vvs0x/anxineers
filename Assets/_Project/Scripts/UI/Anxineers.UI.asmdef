@@ -1,0 +1,14 @@
+{
+    "name": "Anxineers.UI",
+    "rootNamespace": "Anxineers.UI",
+    "references": ["Anxineers.Core"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Anxineers.Debug",
+    "rootNamespace": "Anxineers.Debug",
+    "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.UI"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

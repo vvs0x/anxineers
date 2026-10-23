@@ -1,0 +1,14 @@
+{
+    "name": "Anxineers.Effects",
+    "rootNamespace": "Anxineers.Effects",
+    "references": ["Anxineers.Core", "Anxineers.Gaze"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
