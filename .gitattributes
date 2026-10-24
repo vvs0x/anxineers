@@ -38,3 +38,7 @@
 *.ply filter=lfs diff=lfs merge=lfs -text
 *.splat filter=lfs diff=lfs merge=lfs -text
 *.spz filter=lfs diff=lfs merge=lfs -text
+
+# Web environments stay in normal Git so Netlify and plain git clones get the real files
+web/public/environments/**/*.fbx -filter -diff -merge binary
+web/public/environments/**/*.glb -filter -diff -merge binary
