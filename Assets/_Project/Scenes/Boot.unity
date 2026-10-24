@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02df8dd94d0c1481faf0c2bb073a0d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Anxineers.Core::Anxineers.Core.BootLoader
-  firstScene: Sandbox
+  firstScene: RoomPrototype
 --- !u!4 &1171443598
 Transform:
   m_ObjectHideFlags: 0
