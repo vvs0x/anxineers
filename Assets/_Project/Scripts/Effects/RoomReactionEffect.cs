@@ -32,6 +32,12 @@ namespace Anxineers.Effects
         [Tooltip("How far each wall moves toward the room center at full effect, in meters. Keep it small so nothing reaches the user.")]
         [SerializeField, Range(0f, 1.2f)] private float wallInwardMeters = 0.8f;
 
+        [Tooltip("Large rooms: each wall also moves this fraction of its own distance to the room center (0.3 = 30%). The larger of the two values is used.")]
+        [SerializeField, Range(0f, 0.6f)] private float wallInwardFraction = 0f;
+
+        [Tooltip("Extra meters a wall leans in while the user looks at it (scaled by the effect value).")]
+        [SerializeField, Range(0f, 2f)] private float wallGazeExtraMeters = 0.3f;
+
         [Header("Ceiling")]
         [SerializeField, Range(0f, 0.8f)] private float ceilingDropMeters = 0.5f;
         [SerializeField] private Transform ceiling;
