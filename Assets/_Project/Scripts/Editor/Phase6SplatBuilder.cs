@@ -139,19 +139,22 @@ namespace Anxineers.EditorTools
             }
 
             // 1. Splat assets for every part (imported once, Medium quality).
+            var assets = new Dictionary<string, UnityEngine.Object>();
             foreach (PartInfo p in manifest.parts)
             {
-                if (FindPartAsset(p) == null)
+                UnityEngine.Object existing = FindPartAsset(p);
+                if (existing == null)
                 {
-                    ImportPart(p);
+                    existing = ImportPart(p);
                 }
+                if (existing != null) assets[p.name] = existing;
             }
 
             // 2. One child object per part, positioned at the part's own centre (scan coordinates, the parent turns them upright).
             var byName = new Dictionary<string, GameObject>();
             foreach (PartInfo p in manifest.parts)
             {
-                UnityEngine.Object asset = FindPartAsset(p);
+                assets.TryGetValue(p.name, out UnityEngine.Object asset);
                 if (asset == null)
                 {
                     UnityEngine.Debug.LogError("[Anxineers] No splat asset for part " + p.name + ". Skipped.");
@@ -300,7 +303,8 @@ namespace Anxineers.EditorTools
             foreach (string guid in guids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
-                if (Path.GetFileNameWithoutExtension(path) == name)
+                // The importer may add a suffix such as -M or _M, so match the start of the name.
+                if (Path.GetFileNameWithoutExtension(path).StartsWith(name, StringComparison.Ordinal))
                 {
                     return AssetDatabase.LoadMainAssetAtPath(path);
                 }
@@ -309,7 +313,7 @@ namespace Anxineers.EditorTools
         }
 
         /// <summary>Imports one part with the Medium quality preset, using the package's importer through reflection.</summary>
-        private static void ImportPart(PartInfo p)
+        private static UnityEngine.Object ImportPart(PartInfo p)
         {
             Type importer = FindType("GaussianSplat3DImporter");
             Type settingsType = FindType("GaussianSplat3DImportSettings");
@@ -317,7 +321,7 @@ namespace Anxineers.EditorTools
             if (importer == null || settingsType == null || assetType == null)
             {
                 UnityEngine.Debug.LogError("[Anxineers] Could not find the splat importer types.");
-                return;
+                return null;
             }
 
             object pos = Enum.Parse(assetType.GetNestedType("VectorFormat"), "Norm11");
@@ -330,9 +334,15 @@ namespace Anxineers.EditorTools
             string source = Path.GetFullPath(PartsDir + "/" + p.file);
             MethodInfo import = importer.GetMethod("Import", BindingFlags.Public | BindingFlags.Static);
             EditorUtility.DisplayProgressBar("Anxineers", "Importing " + p.name, 0.5f);
+            UnityEngine.Object result = null;
             try
             {
-                import.Invoke(null, new object[] { source, AssetDir, settings, false });
+                var created = import.Invoke(null, new object[] { source, AssetDir, settings, false }) as Array;
+                if (created != null && created.Length > 0)
+                {
+                    result = created.GetValue(0) as UnityEngine.Object;
+                }
+                UnityEngine.Debug.Log("[Anxineers] Imported " + p.file + (result != null ? " as " + AssetDatabase.GetAssetPath(result) : " (no asset returned)"));
             }
             catch (Exception e)
             {
@@ -343,6 +353,7 @@ namespace Anxineers.EditorTools
                 EditorUtility.ClearProgressBar();
             }
             AssetDatabase.Refresh();
+            return result;
         }
 
         private static bool AssignAsset(Component renderer)
