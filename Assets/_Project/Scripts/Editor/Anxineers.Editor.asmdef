@@ -1,7 +1,7 @@
 {
     "name": "Anxineers.Editor",
     "rootNamespace": "Anxineers.EditorTools",
-    "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.Debug", "Unity.InputSystem"],
+    "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.UI", "Anxineers.Voice", "Anxineers.Session", "Anxineers.Debug", "Unity.InputSystem"],
     "includePlatforms": ["Editor"],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
