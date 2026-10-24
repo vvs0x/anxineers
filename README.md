@@ -24,9 +24,14 @@ Press **Enter VR**.
 
 ### Controls
 
-Desktop: drag to look, `1` calm, `2` build, `3` peak, `4` recovery, `Space` calm now, `Up/Down` cap, `P` next profile, `H` hide debug text.
-Quest: `A/X` calm now, `B/Y` start build or reset.
-URL options: `?profile=Debug_Fast&cap=0.9&autostart=1&env=brutalist`.
+Session: consent, intro, mode (understand anxiety or practise settling), maximum intensity, then the room builds up. After the peak comes 5-4-3-2-1 grounding (answer out loud or press Next), then three slow breaths and the end screen. Hard limit 20 minutes.
+
+Desktop: drag to look, click buttons, `Space` calm now. Quest: point with a controller and press the trigger, `A/X` calm now. Saying "stop" during grounding also calms the room.
+URL options: `?lang=de|en`, `?env=brutalist`, `?debug=1` (debug text, keys `1` calm, `2` build, `3` peak, `4` recovery, `Up/Down` cap, `P` profile, `H` hide, `B/Y` start or reset), `?skip=1&mode=edu|reg&cap=0.9&profile=Debug_Fast` (jump straight into the run).
+
+## Netlify (optional, easiest for the headset)
+
+Netlify gives a real HTTPS address, so the Quest just opens a URL: no Mac running, no adb, no certificate warning. In Netlify: import the repo, set **Base directory** to `web`, leave the build command empty, add `ELEVENLABS_API_KEY` under environment variables. `netlify.toml` serves `public/`, loads three.js from the jsDelivr CDN and runs `/api/stt` and `/api/status` as Netlify Functions. The address is public: protect it (Netlify password protection or an unguessable site name) and check the model licence first.
 
 ## Use your own environment
 
@@ -47,6 +52,8 @@ PROJECT_NOTES.md         decisions and open items
 
 ## Status
 
-1. Environment and effects in WebXR with head gaze: **done**, untested on the headset.
-2. Session flow (consent, mode, cap, breathing, grounding): next.
-3. ElevenLabs voice (grounding answers): after that.
+1. Environment and effects in WebXR with head gaze: **done**.
+2. Session flow (consent, mode, cap, breathing, grounding, in-world panels): **done**.
+3. ElevenLabs voice (grounding answers, "stop"): **done**, falls back to buttons without key or microphone.
+
+All tested headless only (`npm test` with the server running). Not yet tested on the Quest.

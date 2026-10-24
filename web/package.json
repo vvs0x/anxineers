@@ -6,7 +6,7 @@
   "description": "WebXR health-education tool about anxiety. Calm room that reacts to head gaze.",
   "scripts": {
     "start": "node server.js",
-    "test": "node test/headless.mjs"
+    "test": "node test/headless.cjs && node test/flow.cjs"
   },
   "engines": { "node": ">=20" },
   "dependencies": {

@@ -1,0 +1,13 @@
+# Netlify: set the site's base directory to "web". Add ELEVENLABS_API_KEY under Site settings > Environment variables.
+[build]
+  publish = "public"
+  command = ""
+
+[functions]
+  directory = "netlify/functions"
+
+# three.js comes from the CDN on Netlify (locally it is served from node_modules)
+[[redirects]]
+  from = "/vendor/three/*"
+  to = "https://cdn.jsdelivr.net/npm/three@0.180.0/:splat"
+  status = 200

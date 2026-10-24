@@ -7,7 +7,11 @@ import { HeadGaze } from './gaze.js';
 import { loadEnvironment, makeFxUniforms } from './environment.js';
 import { Effects } from './effects.js';
 import { ProceduralAudio } from './audio.js';
+import { Panel } from './ui.js';
+import { Session } from './session.js';
+import { Voice } from './voice.js';
 
+const TEXTS_LANG = (l) => (l === 'de' ? 'de' : 'en');
 const params = new URLSearchParams(location.search);
 const envId = params.get('env') || 'brutalist';
 
@@ -35,6 +39,7 @@ const director = new AnxietyDirector(PROFILES[params.get('profile')] || PROFILES
 if (params.get('cap')) director.setCap(parseFloat(params.get('cap')));
 const audio = new ProceduralAudio();
 const gaze = new HeadGaze(camera);
+const debug = params.get('debug') === '1';
 
 const hud = document.getElementById('hud');
 const status = document.getElementById('status');
@@ -47,6 +52,10 @@ const fx = makeFxUniforms();
 const env = await loadEnvironment(base, config, scene, fx);
 const effects = new Effects(scene, director, env, fx, camera, config.strength);
 status.textContent = '';
+const panel = new Panel(scene, camera, renderer, rig);
+const lang = params.get('lang') || (navigator.language || 'en').slice(0, 2);
+const voice = new Voice(TEXTS_LANG(lang));
+const session = new Session({ director, panel, voice, audio, lang, onExitVR: () => renderer.xr.getSession()?.end() });
 console.log('[env]', JSON.stringify(env.stats), 'interior', env.interior.min.toArray().map((v) => +v.toFixed(2)), env.interior.max.toArray().map((v) => +v.toFixed(2)));
 
 // ---------- placement and desktop look ----------
@@ -64,13 +73,16 @@ addEventListener('pointermove', (e) => {
 });
 
 // ---------- debug keys ----------
+addEventListener('pointerdown', () => audio.start());
 addEventListener('keydown', (e) => {
   audio.start();
+  if (e.code === 'Space') { e.preventDefault(); session.calmNow(); return; }
+  if (e.key.toLowerCase() === 'h') { hud.hidden = !hud.hidden; return; }
+  if (!debug) return;
   if (e.key === '1') director.reset();
   else if (e.key === '2') director.startBuild();
   else if (e.key === '3') director.setState('Peak');
   else if (e.key === '4') director.setState('Recovery');
-  else if (e.code === 'Space') { e.preventDefault(); director.calmNow(); }
   else if (e.key === 'ArrowUp') director.setCap(director.cap + 0.1);
   else if (e.key === 'ArrowDown') director.setCap(director.cap - 0.1);
   else if (e.key.toLowerCase() === 'p') { const ids = Object.keys(PROFILES); const i = ids.indexOf(director.profile.id); director.setProfile(PROFILES[ids[(i + 1) % ids.length]]); }
@@ -80,8 +92,8 @@ addEventListener('keydown', (e) => {
 // ---------- WebXR ----------
 const vrButton = VRButton.createButton(renderer);
 document.getElementById('xr').appendChild(vrButton);
-renderer.xr.addEventListener('sessionstart', () => { audio.start(); hud.hidden = true; rig.rotation.set(0, yaw, 0); camera.rotation.set(0, 0, 0); camera.position.set(0, 0, 0); });
-renderer.xr.addEventListener('sessionend', () => { hud.hidden = false; camera.position.set(0, 1.6, 0); applyLook(); });
+renderer.xr.addEventListener('sessionstart', () => { audio.start(); hud.hidden = true; setTimeout(() => panel.placeInFront(), 700); rig.rotation.set(0, yaw, 0); camera.rotation.set(0, 0, 0); camera.position.set(0, 0, 0); });
+renderer.xr.addEventListener('sessionend', () => { hud.hidden = !debug; camera.position.set(0, 1.6, 0); applyLook(); });
 const pressed = new Map();
 function pollControllers() {
   const session = renderer.xr.getSession(); if (!session) return;
@@ -90,8 +102,8 @@ function pollControllers() {
     gp.buttons.forEach((b, i) => {
       const key = src.handedness + i, was = pressed.get(key) || false;
       if (b.pressed && !was) {
-        if (i === 4) director.calmNow();                      // A / X: calm now
-        if (i === 5) (director.state === 'Calm' ? director.startBuild() : director.reset()); // B / Y: start / reset
+        if (i === 4) session.calmNow();                       // A / X: calm now
+        if (i === 5 && debug) (director.state === 'Calm' ? director.startBuild() : director.reset());
       }
       pressed.set(key, b.pressed);
     });
@@ -111,6 +123,8 @@ function frame() {
   if (renderer.xr.isPresenting) pollControllers();
   gaze.update();
   director.update(dt);
+  session.update(dt);
+  panel.update(dt);
   effects.update(dt, gaze);
   { const l = bgBase.r * 0.3 + bgBase.g * 0.59 + bgBase.b * 0.11; scene.background.copy(bgBase).lerp(new THREE.Color(l * 0.7, l * 0.7, l * 0.72), fx.uDesat.value / Math.max(0.01, effects.s.desaturateMax)).multiplyScalar(1 - 0.35 * effects.values.Light); }
   audio.gain = effects.s.audioGain;
@@ -125,5 +139,8 @@ function frame() {
 }
 renderer.setAnimationLoop(frame);
 
+hud.hidden = !debug;
+if (params.get('skip')) { session.mode = params.get('mode') || 'edu'; session.cap = parseFloat(params.get('cap') || '0.5'); director.setProfile(PROFILES[params.get('profile')] || (session.mode === 'reg' ? PROFILES.Regulation_Gentle : PROFILES.Education_Light)); session.startRun(); }
+else session.begin();
 if (params.get('autostart')) director.startBuild();
-window.app = { THREE, scene, camera, rig, renderer, director, env, effects, fx, audio, STATES, setLook(y, p) { yaw = y; pitch = p; applyLook(); }, ready: true };
+window.app = { session, panel, voice, THREE, scene, camera, rig, renderer, director, env, effects, fx, audio, STATES, setLook(y, p) { yaw = y; pitch = p; applyLook(); }, ready: true };
