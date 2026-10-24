@@ -42,9 +42,10 @@ namespace Anxineers.EditorTools
 
             var splat = new GameObject("Splat");
             splat.transform.SetParent(pivot.transform, false);
-            // Values found for the first test scene (scene.ply): it was captured y-down, so it is turned upside down,
-            // and moved so that the floor sits at y = 0 and the middle of the room around the user. Tune freely.
-            splat.transform.localPosition = new Vector3(-0.57f, 0.5f, -0.26f);
+            // Values found for the first test scene (scene.ply): it was captured y-down, so it is turned upside down.
+            // It is a floor plan with several rooms. The user stands in the big open hall at splat position
+            // (x 0.5, z 2.5), floor at splat y 0.5. With a 180 degree turn on X the offset becomes (-x, 0.5, +z). Tune freely.
+            splat.transform.localPosition = new Vector3(-0.5f, 0.5f, 2.5f);
             splat.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
 
             Type rendererType = FindRendererType();
