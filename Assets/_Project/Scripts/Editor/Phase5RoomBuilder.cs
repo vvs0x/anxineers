@@ -42,11 +42,11 @@ namespace Anxineers.EditorTools
 
             foreach (string n in RemoveNames)
             {
-                GameObject old = GameObject.Find(n);
-                while (old != null)
+                GameObject stale = GameObject.Find(n);
+                while (stale != null)
                 {
-                    Object.DestroyImmediate(old);
-                    old = GameObject.Find(n);
+                    Object.DestroyImmediate(stale);
+                    stale = GameObject.Find(n);
                 }
             }
 
