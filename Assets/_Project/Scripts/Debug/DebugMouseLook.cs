@@ -25,7 +25,7 @@ namespace Anxineers.DebugTools
 
         private void Update()
         {
-            if (XRHMD.current != null)
+            if (InputSystem.GetDevice<XRHMD>() != null)
             {
                 return;
             }
