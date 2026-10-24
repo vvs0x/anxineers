@@ -30,8 +30,8 @@ namespace Anxineers.Effects
         [SerializeField, Range(0.05f, 0.3f)] private float breathHz = 0.15f;
 
         [Header("Blur (splat size)")]
-        [Tooltip("The splats grow, so the room gets soft and unreal. Added to a size of 1 at full effect (0.8 = 80% bigger splats).")]
-        [SerializeField, Range(0f, 2f)] private float blurSplatGrowth = 0.8f;
+        [Tooltip("The splats grow, so the room gets soft and unreal. Added to a size of 1 at full effect (0.15 = 15% bigger splats). Large values make blobs that fill the screen, especially with decimated scans.")]
+        [SerializeField, Range(0f, 1f)] private float blurSplatGrowth = 0.15f;
 
         [Tooltip("The splat renderer component (Gaussians.ThreeD.GaussianSplat3DRenderer). Optional: without it only the squash is used.")]
         [SerializeField] private Component splatRenderer;
