@@ -32,3 +32,12 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - Scenes: Boot (loads Sandbox), Sandbox (XR rig, controller spheres, floor grid, 0.5 m cube, 1.8 m pillar), RoomPrototype (empty). Built via menu Anxineers > Phase 1.
 - Rig: tracked poses via Input System TrackedPoseDriver, floor tracking origin requested by XRTrackingOrigin. No locomotion.
 - Windows graphics API list was changed by Unity during setup (Direct3D11 only for Windows).
+
+## Phase 2 (Core), on branch feat/phase-2-core
+- Gaze: `IGazeProvider`, `GazeSource` (picks valid provider with highest priority), `HeadGazeProvider` (default), `EyeGazeProvider` (stub, never valid).
+- Core: `AnxietyDirector` (state machine Calm/Build/Peak/Recovery, smoothing, hard cap, `CalmNow`), `AnxietyProfile` (timeline plus per-effect max, curve, rise/fall, gaze weight), `IAnxietyEffect`.
+- Effect pattern for Phase 3: `drive = director.Drive(kind, gaze)`, smooth with `EffectSettings.Step`, then `director.Shape(kind, drive)`.
+- `GazeTarget`: local value 0..1 from angle (fullAngle to falloffAngle) times dwell. Reports max value to the director.
+- Debug: `DebugShortcuts` (1-4 states, Space/gamepad A = calm now, Up/Down = cap), `DebugMouseLook` (editor only, right mouse, off when a headset is present), `GazeValueTint`.
+- Editor menus: Anxineers > Tuning Window, Phase 2 > Create Starter Profiles, Phase 2 > Add Core Test Objects To Sandbox.
+- Not yet tested in Unity (written on Mac without compiling). Test: see checkpoint in chat.
