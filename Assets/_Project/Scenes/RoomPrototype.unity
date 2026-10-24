@@ -334,6 +334,202 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.HeadGazeProvider
   head: {fileID: 0}
+--- !u!1 &106442966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106442969}
+  - component: {fileID: 106442967}
+  - component: {fileID: 106442968}
+  m_Layer: 0
+  m_Name: object_06
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &106442967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106442966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 6c1b34d3f0cf141fdb3ba3d8f58c9085, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!65 &106442968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106442966}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6686, y: 0.4621, z: 0.3608}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &106442969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106442966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.9598, y: 0.1768, z: 3.9023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &189919007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189919010}
+  - component: {fileID: 189919008}
+  - component: {fileID: 189919009}
+  m_Layer: 0
+  m_Name: object_08
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &189919008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189919007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 3a1e3a0938152432883854672f100358, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!65 &189919009
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189919007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7849, y: 0.8401, z: 0.4195}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &189919010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189919007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9274, y: -0.0535, z: 3.8801}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203488716
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +582,13 @@ MonoBehaviour:
   driftHz: 0.05
   pulseAmount: 0.12
   pulseHz: 0.25
-  targets: []
+  approachMeters: 0
+  targets:
+  - {fileID: 481315542}
+  - {fileID: 1029812887}
+  - {fileID: 215572727}
+  - {fileID: 1895372668}
+  - {fileID: 1857056299}
 --- !u!1 &215572725
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +631,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215572725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
   m_Name: 
@@ -631,6 +833,200 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253035097}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &257204729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257204733}
+  - component: {fileID: 257204730}
+  - component: {fileID: 257204732}
+  - component: {fileID: 257204731}
+  m_Layer: 0
+  m_Name: wall_xpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &257204730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257204729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 282e9bc6cbc4b4f13b4e2d3e62af8b4c, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &257204731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257204729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 25
+  falloffAngle: 60
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 0
+--- !u!65 &257204732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257204729}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8687, y: 2.4143, z: 4.6426}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &257204733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257204729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.4684, y: -0.8131, z: 2.0447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &278040425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278040427}
+  - component: {fileID: 278040426}
+  m_Layer: 0
+  m_Name: misc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &278040426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278040425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 642c9b1008ab24d649f97bfbeeef865f, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!4 &278040427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278040425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0396, y: 0.3239, z: 0.547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299022948
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +1076,12 @@ MonoBehaviour:
   liveDrive: 0
   liveValue: 0
   wallInwardMeters: 0.5
+  wallInwardFraction: 0
+  wallGazeExtraMeters: 0.3
   ceilingDropMeters: 0.35
   ceiling: {fileID: 1171157496}
+  ceilingGaze: {fileID: 0}
+  ceilingGazeExtraMeters: 0.2
   exitShrink: 0.3
   roomCenter: {fileID: 1634223562}
   walls:
@@ -690,72 +1090,21 @@ MonoBehaviour:
     - {fileID: 1891592149}
     - {fileID: 1494163427}
     - {fileID: 874771405}
+    gaze: {fileID: 0}
   - wall: {fileID: 1511557168}
     attached: []
+    gaze: {fileID: 0}
   - wall: {fileID: 1577222782}
     attached:
     - {fileID: 933652254}
+    gaze: {fileID: 0}
   - wall: {fileID: 1081771597}
     attached:
     - {fileID: 1394365090}
+    gaze: {fileID: 0}
   exits:
   - target: {fileID: 1891592149}
   - target: {fileID: 933652254}
---- !u!1 &323241629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 323241630}
-  - component: {fileID: 323241631}
-  m_Layer: 0
-  m_Name: Effect Splat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &323241630
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323241629}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 466375887}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &323241631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323241629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dbc1fccca2214dbeb144b80104ee0c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.SplatReactionEffect
-  effectEnabled: 1
-  useGlobalGaze: 1
-  liveDrive: 0
-  liveValue: 0
-  pivot: {fileID: 1958332549}
-  horizontalSquash: 0.4
-  verticalSquash: 0.2
-  breathAmount: 0.03
-  breathHz: 0.15
-  blurSplatGrowth: 0.15
-  splatRenderer: {fileID: 1794185509}
 --- !u!1 &363568212
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,14 +1220,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.UI::Anxineers.UI.PromptPanel
   distance: 1.6
   heightOffset: -0.05
+  worldScale: 0.0007
   size: {x: 900, y: 420}
+  font: {fileID: 0}
+  fontResourceName: CalycesInc-Regular
   titleFontSize: 52
   bodyFontSize: 34
-  backgroundColor: {r: 0.05, g: 0.07, b: 0.1, a: 0.78}
+  panelColor: {r: 0.07, g: 0.12, b: 0.16, a: 0.42}
+  boxColor: {r: 1, g: 1, b: 1, a: 0.1}
   textColor: {r: 0.95, g: 0.96, b: 0.98, a: 1}
   doneColor: {r: 0.45, g: 0.85, b: 0.65, a: 1}
   pendingColor: {r: 0.35, g: 0.4, b: 0.46, a: 1}
-  levelColor: {r: 0.55, g: 0.8, b: 1, a: 1}
+  orbColor: {r: 0.6, g: 0.82, b: 1, a: 1}
+  orbPulseHz: 0.3
+  orbPulseAmount: 0.08
+  orbVoiceGrowth: 0.22
+  orbSmoothing: 0.5
 --- !u!114 &363568217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,7 +1475,9 @@ Transform:
   - {fileID: 2128975782}
   - {fileID: 1126910950}
   - {fileID: 299022949}
-  - {fileID: 323241630}
+  - {fileID: 1304379731}
+  - {fileID: 629740013}
+  - {fileID: 1804591072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481315540
@@ -1163,7 +1522,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481315540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
   m_Name: 
@@ -1253,6 +1612,320 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481315540}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &500085269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 500085273}
+  - component: {fileID: 500085270}
+  - component: {fileID: 500085272}
+  - component: {fileID: 500085271}
+  m_Layer: 0
+  m_Name: ceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &500085270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500085269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: e2f9394bc72d94f78970cdaf3b5385a7, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &500085271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500085269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 25
+  falloffAngle: 60
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 0
+--- !u!65 &500085272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500085269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.0089, y: 0.2564, z: 4.5823}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &500085273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500085269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.022, y: -2.2549, z: 2.1053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &554847399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554847402}
+  - component: {fileID: 554847400}
+  - component: {fileID: 554847401}
+  m_Layer: 0
+  m_Name: object_05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &554847400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554847399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: f81d25a0a964647999626dac79cc890f, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!65 &554847401
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554847399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7848, y: 0.8454, z: 0.4489}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &554847402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554847399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3642, y: -0.0905, z: 3.8535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &564189627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564189630}
+  - component: {fileID: 564189628}
+  - component: {fileID: 564189629}
+  m_Layer: 0
+  m_Name: object_09
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &564189628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564189627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 85eedbe422a4544f48c27088f64f14a9, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!65 &564189629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564189627}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8116, y: 0.8529, z: 0.43}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &564189630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564189627}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1902, y: -0.0565, z: 3.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571004915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +2016,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571004915}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &675924718
+--- !u!1 &584141741
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1351,47 +2024,326 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 675924720}
-  - component: {fileID: 675924719}
+  - component: {fileID: 584141742}
+  - component: {fileID: 584141745}
+  - component: {fileID: 584141744}
+  - component: {fileID: 584141743}
   m_Layer: 0
-  m_Name: Splat Environment
+  m_Name: wall_zpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &675924719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675924718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d9b213e6fd44b518ce4b2af7fd4f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.SplatEnvironment
-  mode: 0
-  blockoutRoot: {fileID: 1321866151}
-  splatRoot: {fileID: 1958332548}
-  hiddenLayer: 31
---- !u!4 &675924720
+--- !u!4 &584141742
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675924718}
+  m_GameObject: {fileID: 584141741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0106, y: -0.8539, z: 4.4687}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &584141743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584141741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 25
+  falloffAngle: 60
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 0
+--- !u!65 &584141744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584141741}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.5591, y: 2.3576, z: 0.5216}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &584141745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584141741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 057d12020066846949bba85e779739c1, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!1 &624875437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624875438}
+  m_Layer: 0
+  m_Name: Splat Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624875438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624875437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1958332549}
-  m_Father: {fileID: 0}
+  - {fileID: 1868754078}
+  m_Father: {fileID: 1717725381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &624912013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624912017}
+  - component: {fileID: 624912014}
+  - component: {fileID: 624912016}
+  - component: {fileID: 624912015}
+  m_Layer: 0
+  m_Name: object_04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &624912014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624912013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 49052a00f65ba455b9e46000ca733c9e, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &624912015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624912013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 8
+  falloffAngle: 25
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 1
+--- !u!65 &624912016
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624912013}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2329, y: 0.6628, z: 0.2661}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &624912017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624912013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8105, y: -0.1025, z: 3.3917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &629740012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 629740013}
+  - component: {fileID: 629740014}
+  m_Layer: 0
+  m_Name: Effect Splat Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &629740013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629740012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466375887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &629740014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629740012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bed7c3ca40146e0aedc94c80178753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.ObjectBehaviorEffect
+  effectEnabled: 1
+  useGlobalGaze: 1
+  liveDrive: 0
+  liveValue: 0
+  driftMeters: 0.15
+  driftHz: 0.05
+  pulseAmount: 0.12
+  pulseHz: 0.25
+  approachMeters: 0.6
+  targets:
+  - {fileID: 1321702196}
+  - {fileID: 2105773907}
+  - {fileID: 974833222}
+  - {fileID: 624912015}
+  - {fileID: 1934462690}
+  - {fileID: 1956653073}
 --- !u!1 &874771404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,6 +2695,124 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933652253}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &974833220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974833224}
+  - component: {fileID: 974833221}
+  - component: {fileID: 974833223}
+  - component: {fileID: 974833222}
+  m_Layer: 0
+  m_Name: object_03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &974833221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974833220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 402abfb96481d448f80e8afbdb623e7a, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &974833222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974833220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 8
+  falloffAngle: 25
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 1
+--- !u!65 &974833223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974833220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3942, y: 0.7625, z: 0.937}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &974833224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974833220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.7981, y: -0.0028, z: 1.8857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029812885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +2855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029812885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
   m_Name: 
@@ -2302,6 +3372,199 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256284147}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1304379730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304379731}
+  - component: {fileID: 1304379732}
+  m_Layer: 0
+  m_Name: Effect Splat Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1304379731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304379730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466375887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304379732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304379730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d91649335504c5fb468138776b690f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.RoomReactionEffect
+  effectEnabled: 1
+  useGlobalGaze: 1
+  liveDrive: 0
+  liveValue: 0
+  wallInwardMeters: 0.8
+  wallInwardFraction: 0.3
+  wallGazeExtraMeters: 0.5
+  ceilingDropMeters: 0.5
+  ceiling: {fileID: 500085273}
+  ceilingGaze: {fileID: 500085271}
+  ceilingGazeExtraMeters: 0.2
+  exitShrink: 0
+  roomCenter: {fileID: 1634223562}
+  walls:
+  - wall: {fileID: 1543805957}
+    attached: []
+    gaze: {fileID: 1543805955}
+  - wall: {fileID: 257204733}
+    attached: []
+    gaze: {fileID: 257204731}
+  - wall: {fileID: 2055596574}
+    attached: []
+    gaze: {fileID: 2055596572}
+  - wall: {fileID: 584141742}
+    attached:
+    - {fileID: 554847402}
+    - {fileID: 106442969}
+    - {fileID: 189919010}
+    - {fileID: 564189630}
+    gaze: {fileID: 584141743}
+  exits: []
+--- !u!1 &1321702194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321702198}
+  - component: {fileID: 1321702195}
+  - component: {fileID: 1321702197}
+  - component: {fileID: 1321702196}
+  m_Layer: 0
+  m_Name: object_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1321702195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321702194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 5701292de17034776bb332fa29daf96d, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &1321702196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321702194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 8
+  falloffAngle: 25
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 1
+--- !u!65 &1321702197
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321702194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.2842, y: 2.1133, z: 2.4095}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1321702198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321702194}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.6873, y: -0.6918, z: 1.7255}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321866150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,6 +4237,124 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511557167}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1543805953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543805957}
+  - component: {fileID: 1543805954}
+  - component: {fileID: 1543805956}
+  - component: {fileID: 1543805955}
+  m_Layer: 0
+  m_Name: wall_xneg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1543805954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543805953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: c1f4bdf8834a64196b5a91e8614dec98, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &1543805955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543805953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 25
+  falloffAngle: 60
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 0
+--- !u!65 &1543805956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543805953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8447, y: 2.317, z: 4.45}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1543805957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543805953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.4566, y: -0.8432, z: 2.1566}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577222781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,6 +4715,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658196637}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1717725379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717725381}
+  - component: {fileID: 1717725380}
+  m_Layer: 0
+  m_Name: Splat Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1717725380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717725379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d9b213e6fd44b518ce4b2af7fd4f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.SplatEnvironment
+  mode: 0
+  blockoutRoot: {fileID: 1321866151}
+  splatRoot: {fileID: 624875437}
+  hiddenLayer: 31
+--- !u!4 &1717725381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717725379}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 624875438}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1770960972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,7 +4826,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1794185507
+--- !u!1 &1804591071
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3404,74 +4834,70 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1794185508}
-  - component: {fileID: 1794185509}
+  - component: {fileID: 1804591072}
+  - component: {fileID: 1804591073}
   m_Layer: 0
-  m_Name: Splat
+  m_Name: Effect Splat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1794185508
+--- !u!4 &1804591072
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794185507}
+  m_GameObject: {fileID: 1804591071}
   serializedVersion: 2
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: -0.5, y: 0.5, z: 2.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1958332549}
+  m_Father: {fileID: 466375887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1794185509
+--- !u!114 &1804591073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794185507}
+  m_GameObject: {fileID: 1804591071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dbc1fccca2214dbeb144b80104ee0c4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
-  m_Asset: {fileID: 11400000, guid: 389df71c12c9843aba840951508c85b8, type: 2}
-  m_RenderPath: 1
-  m_ProjectionMode: 1
-  m_RenderOrder: 0
-  m_ConvertGammaToLinear: 1
-  m_WriteDepth: 0
-  m_AlphaCutoff: 0.003921569
-  m_OpacityAwareBounds: 1
-  m_SplatScale: 1
-  m_OpacityScale: 1
-  m_SHOrder: 3
-  m_SHOnly: 0
-  m_SortNthFrame: 1
-  m_CompactVisibleSplats: 0
-  m_EarlyRejection: 1
-  m_DeferredSHLoading: 1
-  m_EarlyFrustumCulling: 1
-  m_CompactionThreshold: 100000
-  m_OptimizationOverrides: 0
-  m_SortPrecision: 32
-  m_MinimumSplatDistance: 0.1
-  m_MinimumSplatOpacity: 0
-  m_MinimumSplatRadiusPixels: 0.7
-  m_RenderMode: 0
-  m_PointDisplaySize: 3
-  m_Cutouts: []
-  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
-  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
-  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
-  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
-  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
-  m_Group: {fileID: 0}
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.SplatReactionEffect
+  effectEnabled: 1
+  useGlobalGaze: 1
+  liveDrive: 0
+  liveValue: 0
+  pivot: {fileID: 624875438}
+  horizontalSquash: 0.06
+  verticalSquash: 0.04
+  breathAmount: 0.03
+  breathHz: 0.15
+  blurSplatGrowth: 0.15
+  splatRenderers:
+  - {fileID: 500085270}
+  - {fileID: 2094420954}
+  - {fileID: 278040426}
+  - {fileID: 1321702195}
+  - {fileID: 2105773906}
+  - {fileID: 974833221}
+  - {fileID: 624912014}
+  - {fileID: 554847400}
+  - {fileID: 106442967}
+  - {fileID: 1934462689}
+  - {fileID: 189919008}
+  - {fileID: 564189628}
+  - {fileID: 1956653072}
+  - {fileID: 1543805954}
+  - {fileID: 257204730}
+  - {fileID: 2055596571}
+  - {fileID: 584141745}
 --- !u!1 &1857056297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,7 +4941,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857056297}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
   m_Name: 
@@ -3697,6 +5123,101 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864621416}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1868754077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1868754078}
+  - component: {fileID: 1868754079}
+  m_Layer: 0
+  m_Name: Splat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1868754078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868754077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: -0.00000004371139}
+  m_LocalPosition: {x: -0.5, y: 0.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 500085273}
+  - {fileID: 2094420955}
+  - {fileID: 278040427}
+  - {fileID: 1321702198}
+  - {fileID: 2105773909}
+  - {fileID: 974833224}
+  - {fileID: 624912017}
+  - {fileID: 554847402}
+  - {fileID: 106442969}
+  - {fileID: 1934462692}
+  - {fileID: 189919010}
+  - {fileID: 564189630}
+  - {fileID: 1956653075}
+  - {fileID: 1543805957}
+  - {fileID: 257204733}
+  - {fileID: 2055596574}
+  - {fileID: 584141742}
+  m_Father: {fileID: 624875438}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868754079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868754077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd84eff5ea94c4a871ccbadeea3ffd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussiansGroup
+  m_Members:
+  - {fileID: 500085270}
+  - {fileID: 2094420954}
+  - {fileID: 278040426}
+  - {fileID: 1321702195}
+  - {fileID: 2105773906}
+  - {fileID: 974833221}
+  - {fileID: 624912014}
+  - {fileID: 554847400}
+  - {fileID: 106442967}
+  - {fileID: 1934462689}
+  - {fileID: 189919008}
+  - {fileID: 564189628}
+  - {fileID: 1956653072}
+  - {fileID: 1543805954}
+  - {fileID: 257204730}
+  - {fileID: 2055596571}
+  - {fileID: 584141745}
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_WriteDepth: 0
+  m_ProjectionMode: 1
+  m_CompactionThreshold: 100000
+  m_SortPrecision: 32
+  m_SortNthFrame: 1
+  m_RenderPath: 1
+  m_ConvertGammaToLinear: 1
+  m_RenderOrder: 0
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_OptimizationOverrides: 0
+  m_CompactVisibleSplats: 0
+  m_Cutouts: []
 --- !u!1 &1872083083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,7 +5462,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895372666}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
   m_Name: 
@@ -4031,7 +5552,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895372666}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1958332548
+--- !u!1 &1934462688
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4039,29 +5560,545 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1958332549}
+  - component: {fileID: 1934462692}
+  - component: {fileID: 1934462689}
+  - component: {fileID: 1934462691}
+  - component: {fileID: 1934462690}
   m_Layer: 0
-  m_Name: Splat Pivot
+  m_Name: object_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1958332549
+--- !u!114 &1934462689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934462688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 070993e65918c4711b3a98282cf60c03, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &1934462690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934462688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 8
+  falloffAngle: 25
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 1
+--- !u!65 &1934462691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934462688}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2235, y: 0.4408, z: 0.225}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1934462692
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958332548}
+  m_GameObject: {fileID: 1934462688}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.7993, y: -1.7937, z: 2.1369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1794185508}
-  m_Father: {fileID: 675924720}
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1956653071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1956653075}
+  - component: {fileID: 1956653072}
+  - component: {fileID: 1956653074}
+  - component: {fileID: 1956653073}
+  m_Layer: 0
+  m_Name: object_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1956653072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956653071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 0e76b61f7028b48a4b4a4a7b915a0e2a, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &1956653073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956653071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 8
+  falloffAngle: 25
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 1
+--- !u!65 &1956653074
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956653071}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2479, y: 0.4386, z: 0.2497}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1956653075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956653071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0027, y: -1.7872, z: 2.1535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2055596570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2055596574}
+  - component: {fileID: 2055596571}
+  - component: {fileID: 2055596573}
+  - component: {fileID: 2055596572}
+  m_Layer: 0
+  m_Name: wall_zneg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2055596571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055596570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: fccbb4f082e994e33846c408290a2183, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &2055596572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055596570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 25
+  falloffAngle: 60
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 0
+--- !u!65 &2055596573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055596570}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.3896, y: 2.259, z: 0.7587}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2055596574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055596570}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0572, y: -0.8582, z: -0.0101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2094420953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2094420955}
+  - component: {fileID: 2094420954}
+  m_Layer: 0
+  m_Name: floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2094420954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094420953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: bb41adf8c3aa04865886607b98772111, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!4 &2094420955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094420953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0624, y: 0.597, z: 2.127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2105773905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105773909}
+  - component: {fileID: 2105773906}
+  - component: {fileID: 2105773908}
+  - component: {fileID: 2105773907}
+  m_Layer: 0
+  m_Name: object_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2105773906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105773905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Gaussians.ThreeD::Gaussians.ThreeD.GaussianSplat3DRenderer
+  m_Asset: {fileID: 11400000, guid: 3dbdafc97794f4f2983d1582a1190233, type: 2}
+  m_RenderPath: 1
+  m_ProjectionMode: 1
+  m_RenderOrder: 0
+  m_ConvertGammaToLinear: 1
+  m_WriteDepth: 0
+  m_AlphaCutoff: 0.003921569
+  m_OpacityAwareBounds: 1
+  m_SplatScale: 1
+  m_OpacityScale: 1
+  m_SHOrder: 3
+  m_SHOnly: 0
+  m_SortNthFrame: 1
+  m_CompactVisibleSplats: 0
+  m_EarlyRejection: 1
+  m_DeferredSHLoading: 1
+  m_EarlyFrustumCulling: 1
+  m_CompactionThreshold: 100000
+  m_OptimizationOverrides: 0
+  m_SortPrecision: 32
+  m_MinimumSplatDistance: 0.1
+  m_MinimumSplatOpacity: 0
+  m_MinimumSplatRadiusPixels: 0.7
+  m_RenderMode: 0
+  m_PointDisplaySize: 3
+  m_Cutouts: []
+  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
+  m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
+  m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
+  m_CSSplatUtilities: {fileID: 7200000, guid: ec84f78b836bd4f96a105d6b804f08bd, type: 3}
+  m_Group: {fileID: 1868754079}
+--- !u!114 &2105773907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105773905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba80f23156461495d7b2729678317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Gaze::Anxineers.Gaze.GazeTarget
+  fullAngle: 8
+  falloffAngle: 25
+  maxDistance: 30
+  dwellInSeconds: 1.5
+  dwellOutSeconds: 2.5
+  aimPoint: {fileID: 0}
+  reportToDirector: 1
+--- !u!65 &2105773908
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105773905}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0371, y: 0.9289, z: 2.1024}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2105773909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105773905}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.9365, y: -0.1408, z: 1.6362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868754078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2128975781
 GameObject:
@@ -4253,4 +6290,4 @@ SceneRoots:
   - {fileID: 363568218}
   - {fileID: 1068173087}
   - {fileID: 1321866151}
-  - {fileID: 675924720}
+  - {fileID: 1717725381}

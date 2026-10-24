@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Education_Light
   m_EditorClassIdentifier: Anxineers.Core::Anxineers.Core.AnxietyProfile
   calmIntensity: 0
-  peakIntensity: 0.5
+  peakIntensity: 0.472
   buildSeconds: 90
   peakHoldSeconds: 30
   recoverySeconds: 45
