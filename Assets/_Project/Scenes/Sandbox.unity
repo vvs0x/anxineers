@@ -810,6 +810,8 @@ GameObject:
   - component: {fileID: 363568215}
   - component: {fileID: 363568214}
   - component: {fileID: 363568213}
+  - component: {fileID: 363568220}
+  - component: {fileID: 363568219}
   m_Layer: 0
   m_Name: Grounding And Breathing
   m_TagString: Untagged
@@ -831,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.Session::Anxineers.Session.SessionShortcuts
   grounding: {fileID: 0}
   breathing: {fileID: 0}
+  session: {fileID: 0}
 --- !u!114 &363568214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,6 +870,8 @@ MonoBehaviour:
     maxSeconds: 60
   listenSeconds: 14
   intensityDropSpeed: 0.1
+  chimeOnItem: 1
+  chimeVolume: 0.35
   startBreathingAtEnd: 1
   voice: {fileID: 0}
   panel: {fileID: 0}
@@ -907,9 +912,12 @@ MonoBehaviour:
   heightOffset: -0.05
   size: {x: 900, y: 420}
   titleFontSize: 52
-  subtitleFontSize: 34
+  bodyFontSize: 34
   backgroundColor: {r: 0.05, g: 0.07, b: 0.1, a: 0.78}
   textColor: {r: 0.95, g: 0.96, b: 0.98, a: 1}
+  doneColor: {r: 0.45, g: 0.85, b: 0.65, a: 1}
+  pendingColor: {r: 0.35, g: 0.4, b: 0.46, a: 1}
+  levelColor: {r: 0.55, g: 0.8, b: 1, a: 1}
 --- !u!114 &363568217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,6 +950,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363568219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363568212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e76844d4f40169ba86fbe6d5ab6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Session::Anxineers.Session.CalmNowInput
+  grounding: {fileID: 0}
+  breathing: {fileID: 0}
+--- !u!114 &363568220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363568212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472763ab5e7024c34bb72c54d322743c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Session::Anxineers.Session.SessionController
+  consentTitle: Before you begin
+  consentBody: 'This is an educational VR experience. It gradually changes what you
+    see and hear to show how anxiety can feel. It is not therapy or medical advice.
+
+
+    You
+    choose how strong it can get, and you can stop at any time with the A or X button.
+
+
+    Your
+    spoken answers may be sent briefly to an online service to understand them.'
+  consentHint: Pull the trigger to agree and continue
+  introTitle: What will happen
+  introBody: 'You will stay where you are, seated or standing.
+
+
+    The room will
+    slowly change. After a while a short exercise helps you settle: you will name
+    things you see, feel, hear, smell and taste, and then take a few slow breaths.'
+  introHint: Pull the trigger to continue
+  capTitle: Choose the maximum intensity
+  capHint: You can always press A or X to calm down.
+  endTitle: Finished
+  endBody: Take a moment before you take off the headset.
+  endHint: Pull the trigger to close
+  maxSessionSeconds: 1200
+  defaultCap: 0.5
+  capStep: 0.1
+  autoBegin: 0
+  panel: {fileID: 0}
+  grounding: {fileID: 0}
+  breathing: {fileID: 0}
 --- !u!1 &446205926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,6 +5224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465421811}
   - component: {fileID: 1465421810}
+  - component: {fileID: 1465421812}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -5245,6 +5312,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1465421812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465421809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &1478813068
 GameObject:
   m_ObjectHideFlags: 0
