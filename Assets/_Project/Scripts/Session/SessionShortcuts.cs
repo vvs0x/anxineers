@@ -13,12 +13,14 @@ namespace Anxineers.Session
         [SerializeField] private GroundingExercise grounding;
         [SerializeField] private BreathingExercise breathing;
         [SerializeField] private SessionController session;
+        [SerializeField] private Anxineers.Effects.SplatEnvironment environment;
 
         private void Awake()
         {
             if (grounding == null) grounding = FindFirstObjectByType<GroundingExercise>();
             if (breathing == null) breathing = FindFirstObjectByType<BreathingExercise>();
             if (session == null) session = FindFirstObjectByType<SessionController>();
+            if (environment == null) environment = FindFirstObjectByType<Anxineers.Effects.SplatEnvironment>();
         }
 
         private void Update()
@@ -33,6 +35,7 @@ namespace Anxineers.Session
             if (kb.bKey.wasPressedThisFrame && breathing != null) breathing.Begin();
             if (kb.backspaceKey.wasPressedThisFrame && grounding != null) grounding.SkipStep();
             if (kb.sKey.wasPressedThisFrame && session != null) session.Begin();
+            if (kb.vKey.wasPressedThisFrame && environment != null) environment.Cycle();
             if (kb.escapeKey.wasPressedThisFrame)
             {
                 if (session != null) session.Abort();
