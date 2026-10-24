@@ -41,3 +41,14 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - Debug: `DebugShortcuts` (1-4 states, Space/gamepad A = calm now, Up/Down = cap), `DebugMouseLook` (editor only, right mouse, off when a headset is present), `GazeValueTint`.
 - Editor menus: Anxineers > Tuning Window, Phase 2 > Create Starter Profiles, Phase 2 > Add Core Test Objects To Sandbox.
 - Not yet tested in Unity (written on Mac without compiling). Test: see checkpoint in chat.
+
+## Phase 4 (Grounding and breathing), on branch feat/phase-4-grounding
+- Design change: the recovery exercise is the 5-4-3-2-1 sensory grounding method (see 5, touch 4, hear 3, smell 2, taste 1), followed by a short breathing ending (3 breaths, 4 s in, 6 s out). Each named item lowers the director intensity.
+- Answers are spoken. `VoiceInput` records the mic and sends the clip to ElevenLabs speech-to-text (`scribe_v2`, POST /v1/speech-to-text, header xi-api-key). Fallback: manual mode (Enter = one spoken item).
+- API key: env var ELEVENLABS_API_KEY, or menu Anxineers > Voice > Set ElevenLabs API Key (saves UserSettings/elevenlabs.key, git-ignored). Never commit keys. A shipped product needs a backend proxy instead of a key on the device.
+- OPEN, needs clinical and data-protection review: user speech leaves the device (third party), consent wording, retention and EU hosting, all prompt wording (placeholder text), any use with people with anxiety.
+- New assemblies: Anxineers.Voice (mic, STT) and Anxineers.Session (grounding, breathing, orb). Namespace Anxineers.Session.
+- Director got `SetTargetOverride` / `ClearTargetOverride` so guided exercises steer intensity; `SetState` and `CalmNow` clear it.
+- Items in the scene (GroundingItem) are optional helpers: see/hear by gaze, touch by controller distance.
+- Test shortcuts: G grounding, B breathing, Backspace skip step, Escape stop, Enter = one spoken item (manual mode).
+- Unverified: ElevenLabs request details came from docs summaries, check Console for the error body if a request fails.
