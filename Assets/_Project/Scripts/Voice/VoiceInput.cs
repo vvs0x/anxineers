@@ -18,6 +18,13 @@ namespace Anxineers.Voice
         Manual,
     }
 
+    public enum VoiceState
+    {
+        Idle,
+        Listening,
+        Processing,
+    }
+
     /// <summary>
     /// Listens for a spoken answer and returns the transcript. ElevenLabs mode records the microphone until the user
     /// stops talking, then sends the clip to the ElevenLabs speech-to-text API (model scribe_v2).
@@ -47,6 +54,14 @@ namespace Anxineers.Voice
 
         public bool IsListening { get; private set; }
 
+        public VoiceState State { get; private set; }
+
+        /// <summary>Live microphone level 0..1, for a level meter. Zero outside ElevenLabs listening.</summary>
+        public float Level { get; private set; }
+
+        /// <summary>True once the user has started speaking in the current listen.</summary>
+        public bool SpeechDetected { get; private set; }
+
         /// <summary>The mode that will actually be used right now.</summary>
         public VoiceMode ActiveMode
         {
@@ -74,6 +89,9 @@ namespace Anxineers.Voice
         {
             currentRequest++;
             IsListening = false;
+            State = VoiceState.Idle;
+            Level = 0f;
+            SpeechDetected = false;
         }
 
         private IEnumerator ListenRoutine(int id, float maxSeconds, Action<SpeechResult> onResult)
@@ -91,6 +109,9 @@ namespace Anxineers.Voice
             }
 
             IsListening = true;
+            State = VoiceState.Listening;
+            Level = 0f;
+            SpeechDetected = false;
             SpeechResult result = default;
             VoiceMode active = ActiveMode;
 
@@ -103,6 +124,9 @@ namespace Anxineers.Voice
             if (!cancelled)
             {
                 IsListening = false;
+                State = VoiceState.Idle;
+                Level = 0f;
+                SpeechDetected = false;
             }
             onResult?.Invoke(cancelled ? SpeechResult.Fail("cancelled") : result);
         }
@@ -189,6 +213,7 @@ namespace Anxineers.Voice
                 int pos = Microphone.GetPosition(null);
                 bool bufferFull = pos <= 0 || pos >= clip.samples;
 
+                float frameRms = 0f;
                 int available = Mathf.Max(0, (bufferFull ? clip.samples : pos) - readPos);
                 while (available > 0)
                 {
@@ -204,6 +229,7 @@ namespace Anxineers.Voice
                         sum += chunk[i] * chunk[i];
                     }
                     float rms = Mathf.Sqrt(sum / n);
+                    frameRms = Mathf.Max(frameRms, rms);
                     if (rms > speechThreshold)
                     {
                         speechStarted = true;
@@ -217,6 +243,9 @@ namespace Anxineers.Voice
                         chunk = new float[2048];
                     }
                 }
+
+                Level = Mathf.Lerp(Level, Mathf.Clamp01(frameRms / (speechThreshold * 6f)), 0.35f);
+                SpeechDetected = speechStarted;
 
                 if (speechStarted && elapsed - lastLoud > silenceSeconds)
                 {
@@ -247,6 +276,9 @@ namespace Anxineers.Voice
                 done(SpeechResult.Fail("no speech"));
                 yield break;
             }
+
+            State = VoiceState.Processing;
+            Level = 0f;
 
             var samples = new float[endPos];
             clip.GetData(samples, 0);

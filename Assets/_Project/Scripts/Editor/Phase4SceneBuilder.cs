@@ -39,6 +39,8 @@ namespace Anxineers.EditorTools
             root.AddComponent<BreathingExercise>();
             root.AddComponent<GroundingExercise>();
             root.AddComponent<SessionShortcuts>();
+            root.AddComponent<SessionController>();
+            root.AddComponent<CalmNowInput>();
 
             var orb = new GameObject(OrbName);
             var visual = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -143,6 +145,23 @@ namespace Anxineers.EditorTools
             {
                 Object.DestroyImmediate(existing);
             }
+        }
+
+        [MenuItem("Anxineers/Phase 4/Add Session Flow To Existing Grounding Object")]
+        public static void AddSessionFlow()
+        {
+            GroundingExercise g = Object.FindFirstObjectByType<GroundingExercise>();
+            if (g == null)
+            {
+                Debug.LogError("[Anxineers] No 'Grounding And Breathing' object found. Run the Phase 4 builder first.");
+                return;
+            }
+            GameObject go = g.gameObject;
+            if (go.GetComponent<SessionController>() == null) go.AddComponent<SessionController>();
+            if (go.GetComponent<CalmNowInput>() == null) go.AddComponent<CalmNowInput>();
+            UnityEditor.EditorUtility.SetDirty(go);
+            UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(go.scene);
+            Debug.Log("[Anxineers] Session flow added. Save the scene (Cmd+S), press Play, press S.");
         }
     }
 }

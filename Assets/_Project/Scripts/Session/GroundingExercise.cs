@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Anxineers.Core;
+using Anxineers.Effects;
 using Anxineers.UI;
 using Anxineers.Voice;
 using UnityEngine;
@@ -42,6 +43,11 @@ namespace Anxineers.Session
         [Tooltip("How fast intensity may fall while grounding, per second.")]
         [SerializeField, Range(0.02f, 0.5f)] private float intensityDropSpeed = 0.1f;
 
+        [Header("Feedback")]
+        [Tooltip("Play a soft chime whenever an item is counted.")]
+        [SerializeField] private bool chimeOnItem = true;
+        [SerializeField, Range(0f, 1f)] private float chimeVolume = 0.35f;
+
         [Header("Ending")]
         [SerializeField] private bool startBreathingAtEnd = true;
 
@@ -59,6 +65,10 @@ namespace Anxineers.Session
         private float calmLevel;
         private int totalItems;
         private int completedTotal;
+        private AudioSource chime;
+        private string lastHeard = string.Empty;
+        private string transientStatus = string.Empty;
+        private float transientUntil;
 
         public bool IsRunning { get; private set; }
         public int StepIndex { get; private set; } = -1;
@@ -76,6 +86,11 @@ namespace Anxineers.Session
             if (breathing == null) breathing = FindFirstObjectByType<BreathingExercise>();
             if (leftHand == null) leftHand = FindByName("LeftHand");
             if (rightHand == null) rightHand = FindByName("RightHand");
+
+            chime = gameObject.AddComponent<AudioSource>();
+            chime.clip = ProceduralAudio.Chime();
+            chime.playOnAwake = false;
+            chime.spatialBlend = 0f;
         }
 
         public static GroundingStep[] DefaultSteps()
@@ -165,7 +180,9 @@ namespace Anxineers.Session
                 }
             }
 
-            ShowProgress(step, string.Empty);
+            lastHeard = string.Empty;
+            transientStatus = string.Empty;
+            ShowProgress(step);
 
             float elapsed = 0f;
             bool listening = false;
@@ -174,13 +191,14 @@ namespace Anxineers.Session
             while (ItemsDone < step.count && elapsed < step.maxSeconds && !skipRequested)
             {
                 elapsed += Time.deltaTime;
+                UpdateFeedback();
 
                 foreach (GroundingItem item in helpers)
                 {
                     if (item.IsCompleted(leftHand, rightHand))
                     {
                         item.MarkDone();
-                        AddItems(step, 1, string.Empty);
+                        AddItems(step, 1);
                     }
                 }
 
@@ -193,7 +211,14 @@ namespace Anxineers.Session
                         nextListenAt = elapsed + 0.4f;
                         if (result.Success && !string.IsNullOrWhiteSpace(result.Text))
                         {
-                            AddItems(step, Mathf.Max(1, SpeechParser.CountItems(result.Text)), result.Text);
+                            int named = Mathf.Max(1, SpeechParser.CountItems(result.Text));
+                            lastHeard = "\u201C" + result.Text.Trim() + "\u201D";
+                            SetTransientStatus(named == 1 ? "Got it: 1 item" : "Got it: " + named + " items", 3f);
+                            AddItems(step, named);
+                        }
+                        else if (result.Error != "cancelled")
+                        {
+                            SetTransientStatus("I did not catch that. Try again when you are ready.", 3f);
                         }
                     });
                 }
@@ -213,8 +238,9 @@ namespace Anxineers.Session
             }
         }
 
-        private void AddItems(GroundingStep step, int amount, string heard)
+        private void AddItems(GroundingStep step, int amount)
         {
+            bool counted = false;
             AnxietyDirector director = AnxietyDirector.Instance;
             for (int i = 0; i < amount && ItemsDone < step.count; i++)
             {
@@ -225,23 +251,72 @@ namespace Anxineers.Session
                     float level = Mathf.Lerp(startLevel, calmLevel, (float)completedTotal / totalItems);
                     director.SetTargetOverride(level, intensityDropSpeed);
                 }
+                counted = true;
                 ItemCompleted?.Invoke(step, ItemsDone);
             }
-            ShowProgress(step, heard);
+
+            if (counted && chimeOnItem && chime != null)
+            {
+                chime.PlayOneShot(chime.clip, chimeVolume);
+            }
+            ShowProgress(CurrentStep);
         }
 
-        private void ShowProgress(GroundingStep step, string heard)
+        private void ShowProgress(GroundingStep step)
+        {
+            if (panel == null || step == null)
+            {
+                return;
+            }
+            panel.Show(step.prompt, lastHeard);
+            panel.SetProgress(ItemsDone, step.count);
+        }
+
+        private void SetTransientStatus(string text, float seconds)
+        {
+            transientStatus = text;
+            transientUntil = Time.time + seconds;
+        }
+
+        /// <summary>Keeps the status line and the microphone level bar in sync with what the voice input is doing.</summary>
+        private void UpdateFeedback()
         {
             if (panel == null)
             {
                 return;
             }
-            string progress = ItemsDone + " of " + step.count;
-            if (!string.IsNullOrEmpty(heard) && (Application.isEditor || Debug.isDebugBuild))
+
+            string text;
+            float level = -1f;
+
+            if (Time.time < transientUntil && !string.IsNullOrEmpty(transientStatus))
             {
-                progress += "\n" + heard;
+                text = transientStatus;
             }
-            panel.Show(step.prompt, progress);
+            else if (voice == null)
+            {
+                text = "Look at the glowing objects";
+            }
+            else if (voice.State == VoiceState.Processing)
+            {
+                text = "One moment...";
+            }
+            else if (voice.State == VoiceState.Listening && voice.ActiveMode == VoiceMode.ElevenLabs)
+            {
+                text = voice.SpeechDetected ? "I am listening..." : "Speak when you are ready";
+                level = voice.Level;
+            }
+            else if (voice.State == VoiceState.Listening)
+            {
+                text = "Say your answer (Enter = one item)";
+            }
+            else
+            {
+                text = string.Empty;
+            }
+
+            panel.SetStatus(text);
+            panel.SetLevel(level);
         }
 
         private void Finish(bool completed)
@@ -258,6 +333,7 @@ namespace Anxineers.Session
             StepIndex = -1;
             if (panel != null)
             {
+                panel.SetLevel(-1f);
                 panel.Hide();
             }
 

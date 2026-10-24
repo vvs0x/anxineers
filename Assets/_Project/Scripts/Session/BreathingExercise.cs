@@ -32,6 +32,7 @@ namespace Anxineers.Session
         private float phaseTime;
         private float startLevel;
         private float calmLevel;
+        private bool steering;
 
         public BreathPhase Phase { get; private set; } = BreathPhase.Idle;
         public bool IsRunning => Phase != BreathPhase.Idle;
@@ -47,14 +48,24 @@ namespace Anxineers.Session
 
         public void Begin()
         {
+            Begin(lowerIntensity);
+        }
+
+        /// <param name="steerIntensity">
+        /// True = each completed breath lowers the director's intensity. False = only pace the breathing (used after
+        /// "calm now", where the director is already ramping down quickly).
+        /// </param>
+        public void Begin(bool steerIntensity)
+        {
             if (IsRunning)
             {
                 return;
             }
 
             CompletedBreaths = 0;
+            steering = steerIntensity;
             AnxietyDirector director = AnxietyDirector.Instance;
-            if (director != null && lowerIntensity)
+            if (director != null && steering)
             {
                 startLevel = director.RawIntensity;
                 calmLevel = director.Profile.CalmIntensity;
@@ -74,7 +85,7 @@ namespace Anxineers.Session
             Phase = BreathPhase.Idle;
             Expansion = 0f;
             AnxietyDirector director = AnxietyDirector.Instance;
-            if (director != null && lowerIntensity)
+            if (director != null && steering)
             {
                 director.ClearTargetOverride();
             }
@@ -120,7 +131,7 @@ namespace Anxineers.Session
             CompletedBreaths++;
 
             AnxietyDirector director = AnxietyDirector.Instance;
-            if (director != null && lowerIntensity)
+            if (director != null && steering)
             {
                 float level = Mathf.Lerp(startLevel, calmLevel, (float)CompletedBreaths / breaths);
                 director.SetTargetOverride(level, intensityDropSpeed);

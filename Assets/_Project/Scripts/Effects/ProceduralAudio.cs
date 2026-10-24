@@ -63,6 +63,21 @@ namespace Anxineers.Effects
             return Build("Drone", data, true);
         }
 
+        /// <summary>Soft rising chime, 0.8 s. Used as confirmation feedback.</summary>
+        public static AudioClip Chime(float frequencyHz = 660f)
+        {
+            int count = (int)(SampleRate * 0.8f);
+            var data = new float[count];
+            for (int s = 0; s < count; s++)
+            {
+                float t = (float)s / SampleRate;
+                float envelope = Mathf.Exp(-t * 5f) * Mathf.Clamp01(t * 80f);
+                float tone = Mathf.Sin(2f * Mathf.PI * frequencyHz * t) + 0.35f * Mathf.Sin(2f * Mathf.PI * frequencyHz * 2f * t);
+                data[s] = tone * envelope;
+            }
+            return Build("Chime", data, true);
+        }
+
         /// <summary>Two soft thumps, about 0.7 s.</summary>
         public static AudioClip Heartbeat()
         {

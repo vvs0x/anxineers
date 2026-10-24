@@ -5,18 +5,20 @@ namespace Anxineers.Session
 {
     /// <summary>
     /// Keyboard shortcuts for testing the exercises without the headset.
-    /// G = start grounding, B = start breathing, Backspace = skip the current grounding step, Escape = stop both.
+    /// S = start the full session, G = start grounding, B = start breathing, Backspace = skip the current grounding step, Escape = stop everything.
     /// In manual voice mode, Enter counts as one spoken item.
     /// </summary>
     public class SessionShortcuts : MonoBehaviour
     {
         [SerializeField] private GroundingExercise grounding;
         [SerializeField] private BreathingExercise breathing;
+        [SerializeField] private SessionController session;
 
         private void Awake()
         {
             if (grounding == null) grounding = FindFirstObjectByType<GroundingExercise>();
             if (breathing == null) breathing = FindFirstObjectByType<BreathingExercise>();
+            if (session == null) session = FindFirstObjectByType<SessionController>();
         }
 
         private void Update()
@@ -30,8 +32,10 @@ namespace Anxineers.Session
             if (kb.gKey.wasPressedThisFrame && grounding != null) grounding.Begin();
             if (kb.bKey.wasPressedThisFrame && breathing != null) breathing.Begin();
             if (kb.backspaceKey.wasPressedThisFrame && grounding != null) grounding.SkipStep();
+            if (kb.sKey.wasPressedThisFrame && session != null) session.Begin();
             if (kb.escapeKey.wasPressedThisFrame)
             {
+                if (session != null) session.Abort();
                 if (grounding != null) grounding.Stop();
                 if (breathing != null) breathing.Stop();
             }
