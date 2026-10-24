@@ -1,7 +1,7 @@
 {
     "name": "Anxineers.UI",
     "rootNamespace": "Anxineers.UI",
-    "references": ["Anxineers.Core"],
+    "references": ["Anxineers.Core", "UnityEngine.UI"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
