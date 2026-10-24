@@ -12,6 +12,8 @@ A clothed human silhouette with a flat cobalt blue body and camera-facing white 
 
 The editable `.blend` includes the text texture. Unused imported meshes and textures were removed from this working copy. The preview stage stays in Blender and is excluded from the game export.
 
+The Blender material uses the same text mask, 1.25 × 2 metre projection, animated hip anchor, scroll speed, and sparse horizontal jitter as the Unity material. Eevee temporal reprojection and motion blur are disabled to keep moving letters clear. Native bone drivers follow the animation during playback. `tools/match_unity_preview.py` rebuilds this preview material and camera setup; keep its effect settings in sync with the Unity material if you change them.
+
 ## Character data
 
 - One skinned mesh, 19,404 Blender vertices, 67 bones.
