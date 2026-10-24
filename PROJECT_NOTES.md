@@ -84,3 +84,7 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - Splat mode switching now moves the splat to a hidden layer (31, removed from all camera masks) instead of disabling the renderer, to avoid the renderer's OnDisable/OnEnable churn that left the splat stuck.
 - `SplatReactionEffect` also breathes the room (up to 3 % at 0.15 Hz) and grows the splat size (blur) via reflection on `m_SplatScale`, squash raised to 40 % / 20 %.
 - The splat renders before transparents and before post processing, so vignette and colour effects do apply to it. Lamp, furniture and light flicker have no effect on a splat (no real lighting or objects).
+
+### Denser splat
+- `Tools/decimate_splat.py` cuts the original 5.67M splat `scene.ply` to a chosen size, optionally cropped to a box. Hall box used: `--box -6 6 -2.6 0.9 -0.4 4.8` gives 3.0M splats, of which the 2.5M most important are kept (140 MB). Output `scene_hall_*` files and their generated assets are git-ignored, so every machine (also the headset PC) must run the script on its copy of the original.
+- Create the splat asset with the Medium preset. The High preset on the 500k sample produced a screen full of green floating splats (cause not understood).

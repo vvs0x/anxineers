@@ -107,3 +107,7 @@ $RECYCLE.BIN/
 .claude/settings.local.json
 .env
 .env.*
+
+# Big splat files stay out of git (regenerate with Tools/decimate_splat.py)
+Assets/_Project/Splats/scene_hall_*
+Assets/Gaussians/3D/scene_hall_*
