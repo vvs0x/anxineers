@@ -24,9 +24,17 @@ namespace Anxineers.Effects
         [Tooltip("The object that holds the splat renderer (usually 'Splat Pivot').")]
         [SerializeField] private GameObject splatRoot;
 
+        [Tooltip("Layer used to hide the splat. Nothing else should use it. The splat is hidden by removing this layer from the camera instead of disabling the renderer, which makes switching instant and safe.")]
+        [SerializeField, Range(8, 31)] private int hiddenLayer = 31;
+
         public EnvironmentMode Mode => mode;
 
         private void OnEnable()
+        {
+            Apply();
+        }
+
+        private void Start()
         {
             Apply();
         }
@@ -52,11 +60,28 @@ namespace Anxineers.Effects
             Debug.Log("[Anxineers] Environment: " + mode);
         }
 
+        private static void SetLayerRecursive(Transform t, int layer)
+        {
+            t.gameObject.layer = layer;
+            for (int i = 0; i < t.childCount; i++)
+            {
+                SetLayerRecursive(t.GetChild(i), layer);
+            }
+        }
+
         private void Apply()
         {
+            // Make sure no camera draws the hidden layer, then move the splat in or out of it.
+            Camera[] cameras = Camera.allCameras;
+            for (int i = 0; i < cameras.Length; i++)
+            {
+                cameras[i].cullingMask &= ~(1 << hiddenLayer);
+            }
             if (splatRoot != null)
             {
-                splatRoot.SetActive(mode != EnvironmentMode.Primitives);
+                splatRoot.SetActive(true);
+                int layer = mode != EnvironmentMode.Primitives ? 0 : hiddenLayer;
+                SetLayerRecursive(splatRoot.transform, layer);
             }
             if (blockoutRoot != null)
             {

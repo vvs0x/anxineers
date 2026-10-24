@@ -79,3 +79,8 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - Test scene: `Assets/_Project/Splats/scene_sample_500k.ply` is a 500k splat sample of the user's `scene.ply` (5.67M splats, 318 MB, too big for git; keep the original outside the repo). Scene was captured y-down: the builder rotates it 180 degrees on X and offsets it (-0.5, 0.5, 2.5) so the user stands in the big open hall (the scene is a multi-room floor plan, the first centre guess was inside a wall). Editor-only WASD walking added to DebugMouseLook (right mouse held). Roughly 11 x 9 x 2.8 m, scale unverified.
 - The splat file only has DC colour (no f_rest SH bands). If the importer demands them, convert or add zeroed bands.
 - Open: non-uniform scale on the splat renderer is untested; invisible blockout furniture still acts as gaze targets in Splat mode (small gaze bonus only); real-room alignment and collision/boundary are not handled.
+
+### Splat effect update
+- Splat mode switching now moves the splat to a hidden layer (31, removed from all camera masks) instead of disabling the renderer, to avoid the renderer's OnDisable/OnEnable churn that left the splat stuck.
+- `SplatReactionEffect` also breathes the room (up to 3 % at 0.15 Hz) and grows the splat size (blur) via reflection on `m_SplatScale`, squash raised to 40 % / 20 %.
+- The splat renders before transparents and before post processing, so vignette and colour effects do apply to it. Lamp, furniture and light flicker have no effect on a splat (no real lighting or objects).

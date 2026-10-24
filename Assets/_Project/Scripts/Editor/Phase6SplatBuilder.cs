@@ -48,10 +48,12 @@ namespace Anxineers.EditorTools
             splat.transform.localPosition = new Vector3(-0.5f, 0.5f, 2.5f);
             splat.transform.localRotation = Quaternion.Euler(180f, 0f, 0f);
 
+            Component splatComponent = null;
             Type rendererType = FindRendererType();
             if (rendererType != null)
             {
                 Component comp = splat.AddComponent(rendererType);
+                splatComponent = comp;
                 bool assigned = AssignAsset(comp);
                 UnityEngine.Debug.Log("[Anxineers] Added splat renderer component: " + rendererType.FullName + (assigned
                     ? ", splat asset assigned." : ". Assign your splat asset on the 'Splat' object."));
@@ -78,6 +80,7 @@ namespace Anxineers.EditorTools
             var reaction = fxGo.AddComponent<SplatReactionEffect>();
             var rso = new SerializedObject(reaction);
             rso.FindProperty("pivot").objectReferenceValue = pivot.transform;
+            rso.FindProperty("splatRenderer").objectReferenceValue = splatComponent;
             rso.ApplyModifiedPropertiesWithoutUndo();
 
             EditorSceneManager.MarkSceneDirty(scene);

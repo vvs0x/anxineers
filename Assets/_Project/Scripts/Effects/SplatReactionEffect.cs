@@ -1,3 +1,4 @@
+using System.Reflection;
 using Anxineers.Core;
 using UnityEngine;
 
@@ -16,13 +17,29 @@ namespace Anxineers.Effects
 
         [Header("Squash at full effect")]
         [Tooltip("How much the room shrinks sideways (0.3 = 30% smaller on X and Z).")]
-        [SerializeField, Range(0f, 0.5f)] private float horizontalSquash = 0.3f;
+        [SerializeField, Range(0f, 0.6f)] private float horizontalSquash = 0.4f;
 
         [Tooltip("How much the ceiling lowers (0.15 = 15% lower).")]
-        [SerializeField, Range(0f, 0.3f)] private float verticalSquash = 0.15f;
+        [SerializeField, Range(0f, 0.4f)] private float verticalSquash = 0.2f;
+
+        [Header("Breathing room")]
+        [Tooltip("The whole room slowly swells and shrinks by this much at full effect (0.03 = 3%).")]
+        [SerializeField, Range(0f, 0.08f)] private float breathAmount = 0.03f;
+
+        [Tooltip("Breaths per second. Kept slow on purpose.")]
+        [SerializeField, Range(0.05f, 0.3f)] private float breathHz = 0.15f;
+
+        [Header("Blur (splat size)")]
+        [Tooltip("The splats grow, so the room gets soft and unreal. Added to a size of 1 at full effect (0.8 = 80% bigger splats).")]
+        [SerializeField, Range(0f, 2f)] private float blurSplatGrowth = 0.8f;
+
+        [Tooltip("The splat renderer component (Gaussians.ThreeD.GaussianSplat3DRenderer). Optional: without it only the squash is used.")]
+        [SerializeField] private Component splatRenderer;
 
         private Vector3 baseScale = Vector3.one;
         private bool captured;
+        private FieldInfo scaleField;
+        private float baseSplatScale = 1f;
 
         public override EffectKind Kind => EffectKind.Space;
 
@@ -40,6 +57,19 @@ namespace Anxineers.Effects
                 baseScale = pivot.localScale;
                 captured = true;
             }
+            if (splatRenderer != null)
+            {
+                // Reflection keeps this script free of any dependency on the splat package.
+                scaleField = splatRenderer.GetType().GetField("m_SplatScale", BindingFlags.Public | BindingFlags.Instance);
+                if (scaleField != null && scaleField.FieldType == typeof(float))
+                {
+                    baseSplatScale = (float)scaleField.GetValue(splatRenderer);
+                }
+                else
+                {
+                    scaleField = null;
+                }
+            }
         }
 
         protected override void Apply(float value, AnxietyDirector director, float deltaTime)
@@ -54,7 +84,12 @@ namespace Anxineers.Effects
             }
             float h = 1f - horizontalSquash * value;
             float v = 1f - verticalSquash * value;
-            pivot.localScale = new Vector3(baseScale.x * h, baseScale.y * v, baseScale.z * h);
+            float breath = 1f + breathAmount * value * Mathf.Sin(2f * Mathf.PI * breathHz * Time.time);
+            pivot.localScale = new Vector3(baseScale.x * h * breath, baseScale.y * v * breath, baseScale.z * h * breath);
+            if (scaleField != null && splatRenderer != null)
+            {
+                scaleField.SetValue(splatRenderer, baseSplatScale * (1f + blurSplatGrowth * value));
+            }
         }
 
         protected override void ResetEffect()
@@ -62,6 +97,10 @@ namespace Anxineers.Effects
             if (pivot != null && captured)
             {
                 pivot.localScale = baseScale;
+            }
+            if (scaleField != null && splatRenderer != null)
+            {
+                scaleField.SetValue(splatRenderer, baseSplatScale);
             }
         }
     }
