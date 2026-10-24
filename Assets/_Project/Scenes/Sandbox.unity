@@ -423,6 +423,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190440900}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &203488716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203488717}
+  - component: {fileID: 203488718}
+  m_Layer: 0
+  m_Name: Effect Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &203488717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203488716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466375887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &203488718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203488716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bed7c3ca40146e0aedc94c80178753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.ObjectBehaviorEffect
+  effectEnabled: 1
+  useGlobalGaze: 1
+  liveDrive: 0
+  liveValue: 0
+  driftMeters: 0.25
+  driftHz: 0.05
+  pulseAmount: 0.25
+  pulseHz: 0.25
+  targets: []
 --- !u!1 &247768781
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +656,146 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260375067}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &446205926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446205927}
+  - component: {fileID: 446205928}
+  m_Layer: 0
+  m_Name: Effect Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446205927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446205926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466375887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446205928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446205926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260600685522141be85938d0759b2038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.LightEffect
+  effectEnabled: 1
+  useGlobalGaze: 1
+  liveDrive: 0
+  liveValue: 0
+  maxDesaturation: 60
+  maxCoolShift: 30
+  flickerLights:
+  - {fileID: 1465421810}
+  flickerAmount: 0
+  flickerHz: 1.5
+--- !u!1 &466063352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466063353}
+  - component: {fileID: 466063354}
+  m_Layer: 0
+  m_Name: Effect Vision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466063353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466063352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466375887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466063354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466063352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5f3a183247a4d779b84777e81a92fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Anxineers.Effects::Anxineers.Effects.VisionEffect
+  effectEnabled: 1
+  useGlobalGaze: 1
+  liveDrive: 0
+  liveValue: 0
+  maxIntensity: 0.55
+  smoothness: 0.45
+  breathAmplitude: 0.03
+  breathHz: 0.12
+--- !u!1 &466375886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466375887}
+  m_Layer: 0
+  m_Name: Anxiety Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466375887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466375886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 466063353}
+  - {fileID: 446205927}
+  - {fileID: 203488717}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &473918332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.Debug::Anxineers.DebugTools.GazeValueTint
   calmColor: {r: 0.3, g: 0.38, b: 0.45, a: 1}
   hotColor: {r: 1, g: 0.3, b: 0.2, a: 1}
+  intensityInfluence: 0.6
 --- !u!114 &1048048091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,6 +2516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.Debug::Anxineers.DebugTools.GazeValueTint
   calmColor: {r: 0.3, g: 0.38, b: 0.45, a: 1}
   hotColor: {r: 1, g: 0.3, b: 0.2, a: 1}
+  intensityInfluence: 0.6
 --- !u!114 &1327132570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3434,6 +3629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.Debug::Anxineers.DebugTools.GazeValueTint
   calmColor: {r: 0.3, g: 0.38, b: 0.45, a: 1}
   hotColor: {r: 1, g: 0.3, b: 0.2, a: 1}
+  intensityInfluence: 0.6
 --- !u!114 &1791854861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,6 +3903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.Debug::Anxineers.DebugTools.GazeValueTint
   calmColor: {r: 0.3, g: 0.38, b: 0.45, a: 1}
   hotColor: {r: 1, g: 0.3, b: 0.2, a: 1}
+  intensityInfluence: 0.6
 --- !u!114 &1863186817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4056,6 +4253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Anxineers.Debug::Anxineers.DebugTools.GazeValueTint
   calmColor: {r: 0.3, g: 0.38, b: 0.45, a: 1}
   hotColor: {r: 1, g: 0.3, b: 0.2, a: 1}
+  intensityInfluence: 0.6
 --- !u!114 &1945585219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4308,3 +4506,4 @@ SceneRoots:
   - {fileID: 1171443600}
   - {fileID: 1770960975}
   - {fileID: 1826891052}
+  - {fileID: 466375887}
