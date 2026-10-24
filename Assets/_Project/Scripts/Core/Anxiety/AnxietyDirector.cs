@@ -159,12 +159,19 @@ namespace Anxineers.Core
 
         // ---- Helpers for effects --------------------------------------------------------------------------------
 
-        /// <summary>Intensity plus weighted gaze, clamped to the cap. Smooth this with EffectSettings.Step.</summary>
+        /// <summary>
+        /// Ambient drive for an effect. The profile's peak intensity maps to full drive everywhere in the room, so in Peak
+        /// every effect is at its peak no matter where the user looks. Gaze only adds a bonus on top of what is missing to
+        /// full (it never takes anything away), and the intensity cap still limits the result. Smooth with EffectSettings.Step.
+        /// </summary>
         public float Drive(EffectKind kind, float gaze01)
         {
             EffectSettings settings = profile.GetEffect(kind);
-            float drive = Intensity + settings.gazeWeight * Mathf.Clamp01(gaze01);
-            return Mathf.Min(Mathf.Clamp01(drive), intensityCap);
+            float peak = Mathf.Max(0.05f, profile.PeakIntensity);
+            float ambient = Mathf.Clamp01(Intensity / peak);
+            float ceiling = Mathf.Clamp01(intensityCap / peak);
+            float bonus = settings.gazeWeight * Mathf.Clamp01(gaze01) * (1f - ambient);
+            return Mathf.Min(ambient + bonus, ceiling);
         }
 
         /// <summary>Applies the effect's response curve and max value to a drive value.</summary>

@@ -6,3 +6,7 @@
 - Wall-mounted pieces (door, window, frame, shelf, bench) are attached to their wall and are deliberately not gaze targets, to avoid two effects writing the same transform.
 - The abstract grounding helper items are removed in the room; grounding runs by voice only there.
 - Review: whether wall lean and ceiling drop are acceptable for a clinical audience (they imitate a "closing in" feeling).
+
+## Drive model change (after room test)
+- `AnxietyDirector.Drive` now normalizes by the profile's peak: peak intensity = full drive for every effect, everywhere. Gaze only adds a bonus on the part still missing to full, so looking away never lowers the ambient level. The intensity cap still limits it (cap / peak).
+- Consequence: the profile's per-effect `maxValue` now sets the strength at peak. Retune if the old gaze-heavy look is wanted.
