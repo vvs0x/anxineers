@@ -94,3 +94,8 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - `Anxineers/Phase 7/Build Windows Player` builds Windows x64 to `Builds/Anxineers/`. Untested. Standalone Android is dropped (always tethered).
 - Release builds keep only calm now (Space, controller buttons) and Escape. State and cap shortcuts and the test keys are editor and development build only.
 - `SAFETY_REVIEW.md` lists safety checks, open clinical review items and data protection items.
+
+### UI restyle
+- `PromptPanel`: translucent rounded boxes (procedural sprites), round dots, panel placed 1.0 m in front of the user (was 1.6 m, ended up behind walls), canvas scale 0.0007 m per unit.
+- Listening level bar replaced by a soft pulsing orb (0.3 Hz, voice level smoothed over 0.5 s so it never flickers).
+- Font: `Assets/_Project/Resources/Fonts/CalycesInc-Regular` (.ttf or .otf, not in the repo until the user adds it, check the font licence before committing). Falls back to the built-in font with a console warning.

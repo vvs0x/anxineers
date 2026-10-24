@@ -51,7 +51,7 @@ namespace Anxineers.Session
         [SerializeField] private string regulationLabel = "Practise settling (gentle)";
 
         [SerializeField] private string capTitle = "Choose the maximum intensity";
-        [SerializeField] private string capHint = "You can always press A or X to calm down.";
+        [SerializeField] private string capHint = "Thumbstick to change, trigger to confirm. A or X always calms.";
 
         [SerializeField] private string endTitle = "Finished";
         [SerializeField, TextArea(2, 6)] private string endBody = "Take a moment before you take off the headset.";
@@ -258,7 +258,7 @@ namespace Anxineers.Session
                     panel.Show(capTitle, capHint);
                     panel.SetProgress(Mathf.RoundToInt(cap / capStep), steps);
                     panel.SetLevel(-1f);
-                    panel.SetStatus("Maximum: " + Mathf.RoundToInt(cap * 100f) + "%   (thumbstick left or right, trigger to confirm)");
+                    panel.SetStatus("Maximum: " + Mathf.RoundToInt(cap * 100f) + "%");
                 }
                 yield return null;
             }
