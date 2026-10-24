@@ -12,6 +12,7 @@ namespace Anxineers.Effects
     {
         private Volume volume;
         private VolumeProfile profile;
+        private bool loggedOnce;
 
         public static PostFxVolume GetOrCreate()
         {
@@ -40,12 +41,33 @@ namespace Anxineers.Effects
             EnsureProfile();
         }
 
-        private void Start()
+        private void Update()
+        {
+            EnsureCamera();
+        }
+
+        private void EnsureCamera()
         {
             Camera cam = Camera.main;
-            if (cam != null)
+            if (cam == null)
             {
-                cam.GetUniversalAdditionalCameraData().renderPostProcessing = true;
+                return;
+            }
+
+            UniversalAdditionalCameraData data = cam.GetUniversalAdditionalCameraData();
+            bool changed = !data.renderPostProcessing || data.volumeTrigger == null || data.volumeLayerMask != ~0;
+            data.renderPostProcessing = true;
+            data.volumeLayerMask = ~0;
+            if (data.volumeTrigger == null)
+            {
+                data.volumeTrigger = cam.transform;
+            }
+
+            if (changed || !loggedOnce)
+            {
+                loggedOnce = true;
+                Debug.Log("[Anxineers] PostFX ready on camera '" + cam.name + "' (post-processing on, volume mask Everything, volume layer " +
+                          LayerMask.LayerToName(gameObject.layer) + ").", cam);
             }
         }
 
