@@ -17,7 +17,7 @@ namespace Anxineers.EditorTools
             UnityEngine.Debug.Log("[Anxineers] Starter profiles ready in " + ProfilesDir);
         }
 
-        /// <summary>Returns Education light, Education strong and Regulation gentle, creating missing ones.</summary>
+        /// <summary>Returns Education light, Education strong, Regulation gentle and Debug fast (seconds-long timeline for testing), creating missing ones.</summary>
         public static AnxietyProfile[] EnsureAll()
         {
             System.IO.Directory.CreateDirectory(ProfilesDir);
@@ -27,6 +27,7 @@ namespace Anxineers.EditorTools
                 Ensure("Education_Light", peak: 0.5f, build: 90f, hold: 30f, recovery: 45f),
                 Ensure("Education_Strong", peak: 0.9f, build: 60f, hold: 20f, recovery: 40f),
                 Ensure("Regulation_Gentle", peak: 0.4f, build: 120f, hold: 15f, recovery: 90f),
+                Ensure("Debug_Fast", peak: 0.9f, build: 6f, hold: 4f, recovery: 6f),
             };
         }
 
