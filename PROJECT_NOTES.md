@@ -107,3 +107,12 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - Without a manifest the builder falls back to the single hall asset and only squashes the whole room.
 - Blockout furniture gaze targets are switched off while the splat is shown (SplatEnvironment).
 - Untested: part import by reflection, group membership, wall gaps at corners, object/wall detection quality.
+
+## Pivot to WebXR (Oct 2026)
+
+- No Windows PC, Quest 3 cannot be driven from a Mac via Link. Decision: browser app (three.js WebXR) with a Node server, Unity project frozen in `unity-archive/`. Gaussian splats dropped.
+- Environment is any mesh (FBX/GLB) with name-hint roles and a per-environment `env.json`. First environment: brutalist gallery (licence still to be checked).
+- Hosting: HTTP on localhost with `adb reverse` (USB), HTTPS with self-signed certificate on Wi-Fi.
+- Web step 1 done: loader, director (states, cap, calm now), head gaze, effects (walls lean, ceiling drop, vignette, desaturation, light dip, object drift/pulse/approach, procedural sound). Tested headless only, not yet on the headset.
+- Next: step 2 session flow (consent, mode, cap, breathing, grounding), step 3 ElevenLabs voice via `/api/stt`.
+- Open: CalycesInc-Regular font file still to be supplied; Quest performance (about 480k triangles after hiding off-scene statues) to be measured; voice data handling and consent wording need clinical/data-protection review (see docs/SAFETY_REVIEW.md).

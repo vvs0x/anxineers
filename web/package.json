@@ -1,0 +1,17 @@
+{
+  "name": "anxineers-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "WebXR health-education tool about anxiety. Calm room that reacts to head gaze.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/headless.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "express": "^5.1.0",
+    "selfsigned": "^5.0.0",
+    "three": "^0.180.0"
+  }
+}

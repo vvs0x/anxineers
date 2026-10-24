@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anxineers</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0c0d0f; overflow: hidden; font-family: system-ui, sans-serif; }
+  canvas { display: block; }
+  #hud { position: fixed; left: 12px; top: 12px; margin: 0; padding: 8px 10px; color: #cfe; background: rgba(0,0,0,.45); font: 12px/1.5 ui-monospace, monospace; white-space: pre; border-radius: 6px; pointer-events: none; }
+  #status { position: fixed; inset: 0; display: grid; place-items: center; color: #9aa; font-size: 18px; pointer-events: none; }
+  #xr button { z-index: 5; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/vendor/three/build/three.module.js", "three/addons/": "/vendor/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<pre id="hud"></pre>
+<div id="status"></div>
+<div id="xr"></div>
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>
