@@ -1,0 +1,14 @@
+{
+    "name": "Anxineers.Session",
+    "rootNamespace": "Anxineers.Session",
+    "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.UI", "Anxineers.Voice", "Unity.InputSystem"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
