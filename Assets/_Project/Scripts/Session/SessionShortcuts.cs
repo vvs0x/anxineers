@@ -31,11 +31,14 @@ namespace Anxineers.Session
                 return;
             }
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            // Test shortcuts. Release builds only keep Escape (stop everything).
             if (kb.gKey.wasPressedThisFrame && grounding != null) grounding.Begin();
             if (kb.bKey.wasPressedThisFrame && breathing != null) breathing.Begin();
             if (kb.backspaceKey.wasPressedThisFrame && grounding != null) grounding.SkipStep();
             if (kb.sKey.wasPressedThisFrame && session != null) session.Begin();
             if (kb.vKey.wasPressedThisFrame && environment != null) environment.Cycle();
+#endif
             if (kb.escapeKey.wasPressedThisFrame)
             {
                 if (session != null) session.Abort();

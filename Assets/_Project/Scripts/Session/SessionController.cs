@@ -11,6 +11,7 @@ namespace Anxineers.Session
         Idle,
         Consent,
         Intro,
+        ModeSelect,
         CapSelect,
         Running,
         Ending,
@@ -43,6 +44,12 @@ namespace Anxineers.Session
             "you will name things you see, feel, hear, smell and taste, and then take a few slow breaths.";
         [SerializeField] private string introHint = "Pull the trigger to continue";
 
+        [SerializeField] private string modeTitle = "Choose an experience";
+        [SerializeField, TextArea(2, 6)] private string modeBody = "Use the thumbstick (or the left and right arrow keys) to choose.";
+        [SerializeField] private string modeHint = "Pull the trigger to confirm";
+        [SerializeField] private string educationLabel = "Understand anxiety (for learning)";
+        [SerializeField] private string regulationLabel = "Practise settling (gentle)";
+
         [SerializeField] private string capTitle = "Choose the maximum intensity";
         [SerializeField] private string capHint = "You can always press A or X to calm down.";
 
@@ -56,6 +63,12 @@ namespace Anxineers.Session
 
         [SerializeField, Range(0.1f, 1f)] private float defaultCap = 0.5f;
         [SerializeField, Range(0.05f, 0.25f)] private float capStep = 0.1f;
+
+        [Header("Profiles")]
+        [Tooltip("Tuning used for the learning experience. Assigned by the Phase 7 menu.")]
+        [SerializeField] private AnxietyProfile educationProfile;
+        [Tooltip("Tuning used for the gentle settling experience. Assigned by the Phase 7 menu.")]
+        [SerializeField] private AnxietyProfile regulationProfile;
 
         [Header("Start")]
         [SerializeField] private bool autoBegin = false;
@@ -163,6 +176,9 @@ namespace Anxineers.Session
             Phase = SessionPhase.Intro;
             yield return ShowMessage(introTitle, introBody, introHint);
 
+            Phase = SessionPhase.ModeSelect;
+            yield return SelectMode(director);
+
             Phase = SessionPhase.CapSelect;
             yield return SelectCap(director);
 
@@ -188,6 +204,38 @@ namespace Anxineers.Session
             while (!confirm.WasPressedThisFrame())
             {
                 yield return null;
+            }
+        }
+
+        private IEnumerator SelectMode(AnxietyDirector director)
+        {
+            int choice = 0;
+            bool dirty = true;
+            yield return null;
+
+            while (!confirm.WasPressedThisFrame())
+            {
+                int direction = ReadAdjustDirection();
+                if (direction != 0)
+                {
+                    choice = Mathf.Clamp(choice + direction, 0, 1);
+                    dirty = true;
+                }
+
+                if (dirty && panel != null)
+                {
+                    string body = (choice == 0 ? "> " : "   ") + educationLabel + "\n" +
+                                  (choice == 1 ? "> " : "   ") + regulationLabel + "\n\n" + modeBody;
+                    panel.ShowMessage(modeTitle, body, modeHint);
+                    dirty = false;
+                }
+                yield return null;
+            }
+
+            AnxietyProfile chosen = choice == 0 ? educationProfile : regulationProfile;
+            if (chosen != null)
+            {
+                director.SetProfile(chosen);
             }
         }
 

@@ -88,3 +88,9 @@ Running log: decisions, versions, open questions, test results. Update this inst
 ### Denser splat
 - `Tools/decimate_splat.py` cuts the original 5.67M splat `scene.ply` to a chosen size, optionally cropped to a box. Hall box used: `--box -6 6 -2.6 0.9 -0.4 4.8` gives 3.0M splats, of which the 2.5M most important are kept (140 MB). Output `scene_hall_*` files and their generated assets are git-ignored, so every machine (also the headset PC) must run the script on its copy of the original.
 - Create the splat asset with the Medium preset. The High preset on the 500k sample produced a screen full of green floating splats (cause not understood).
+
+## Phase 7: polish
+- SessionController now has a mode screen (Understand anxiety = Education_Light, Practise settling = Regulation_Gentle) before the cap screen. Profiles are assigned by `Anxineers/Phase 7/Prepare Room For Release`, which also turns on autoBegin, points Boot at RoomPrototype and sets the build scenes.
+- `Anxineers/Phase 7/Build Windows Player` builds Windows x64 to `Builds/Anxineers/`. Untested. Standalone Android is dropped (always tethered).
+- Release builds keep only calm now (Space, controller buttons) and Escape. State and cap shortcuts and the test keys are editor and development build only.
+- `SAFETY_REVIEW.md` lists safety checks, open clinical review items and data protection items.
