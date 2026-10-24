@@ -88,8 +88,14 @@ namespace Anxineers.EditorTools
             else if (partsMode)
             {
                 BuildParts(splat, rendererType, renderers, fx, room);
+                if (renderers.Count == 0)
+                {
+                    UnityEngine.Debug.LogError("[Anxineers] No part could be built. Falling back to the single hall asset.");
+                    partsMode = false;
+                }
             }
-            else
+
+            if (rendererType != null && !partsMode)
             {
                 Component comp = splat.AddComponent(rendererType);
                 renderers.Add(comp);
@@ -101,7 +107,8 @@ namespace Anxineers.EditorTools
             var so = new SerializedObject(switcher);
             so.FindProperty("blockoutRoot").objectReferenceValue = room != null ? room.transform : null;
             so.FindProperty("splatRoot").objectReferenceValue = pivot;
-            so.FindProperty("mode").enumValueIndex = rendererType != null ? (int)EnvironmentMode.Splat : (int)EnvironmentMode.Primitives;
+            // Never leave the user in a black scene: without any splat renderer, show the blockout room.
+            so.FindProperty("mode").enumValueIndex = renderers.Count > 0 ? (int)EnvironmentMode.Splat : (int)EnvironmentMode.Primitives;
             so.ApplyModifiedPropertiesWithoutUndo();
 
             // Whole-room effect: breathing, blur and (a little) squash.
@@ -396,7 +403,8 @@ namespace Anxineers.EditorTools
                 try { types = asm.GetTypes(); } catch (ReflectionTypeLoadException e) { types = e.Types; }
                 foreach (Type t in types)
                 {
-                    if (t != null && t.Name == simpleName && !t.IsAbstract) return t;
+                    // Static classes (like the importer) are abstract and sealed, so only skip real abstract base classes.
+                    if (t != null && t.Name == simpleName && !(t.IsAbstract && !t.IsSealed)) return t;
                 }
             }
             return null;
