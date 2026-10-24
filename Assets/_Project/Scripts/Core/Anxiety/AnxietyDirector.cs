@@ -27,6 +27,8 @@ namespace Anxineers.Core
         private float frameGaze;
         private float timeInState;
         private bool calmNowActive;
+        private float? targetOverride;
+        private float overrideSpeed = 0.1f;
 
         public AnxietyState State { get; private set; }
 
@@ -49,6 +51,9 @@ namespace Anxineers.Core
         public AnxietyProfile Profile => profile;
 
         public bool CalmNowActive => calmNowActive;
+
+        /// <summary>True while a guided exercise is steering the intensity instead of the state timeline.</summary>
+        public bool HasTargetOverride => targetOverride.HasValue;
 
         public bool AutoAdvance
         {
@@ -93,12 +98,29 @@ namespace Anxineers.Core
 
         public void SetState(AnxietyState state)
         {
+            targetOverride = null;
             SetStateInternal(state, false);
+        }
+
+        /// <summary>
+        /// Lets a guided exercise (grounding, breathing) steer the intensity toward a level at a given speed
+        /// (intensity units per second). The state timeline pauses until <see cref="ClearTargetOverride"/>.
+        /// </summary>
+        public void SetTargetOverride(float target01, float speedPerSecond)
+        {
+            targetOverride = Mathf.Clamp01(target01);
+            overrideSpeed = Mathf.Max(0.01f, speedPerSecond);
+        }
+
+        public void ClearTargetOverride()
+        {
+            targetOverride = null;
         }
 
         /// <summary>Instant user safety action: ramps intensity down quickly and announces itself.</summary>
         public void CalmNow()
         {
+            targetOverride = null;
             SetStateInternal(AnxietyState.Recovery, true);
             CalmNowRequested?.Invoke();
         }
@@ -193,8 +215,17 @@ namespace Anxineers.Core
                     break;
             }
 
+            if (targetOverride.HasValue)
+            {
+                TargetIntensity = Mathf.Max(calm, targetOverride.Value);
+                speed = overrideSpeed;
+            }
+
             RawIntensity = Mathf.MoveTowards(RawIntensity, TargetIntensity, speed * dt);
-            AdvanceIfNeeded(calm, peak);
+            if (!targetOverride.HasValue)
+            {
+                AdvanceIfNeeded(calm, peak);
+            }
 
             for (int i = 0; i < effects.Count; i++)
             {
