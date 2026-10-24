@@ -91,7 +91,11 @@ namespace Anxineers.EditorTools
         private static bool AssignAsset(Component renderer)
         {
             // Use the first splat asset created by the package under Assets/Gaussians/3D.
-            string[] guids = AssetDatabase.FindAssets("scene_sample_500k t:ScriptableObject", new[] { "Assets/Gaussians" });
+            string[] guids = AssetDatabase.FindAssets("scene_hall t:ScriptableObject", new[] { "Assets/Gaussians" });
+            if (guids.Length == 0)
+            {
+                guids = AssetDatabase.FindAssets("scene_sample_500k t:ScriptableObject", new[] { "Assets/Gaussians" });
+            }
             if (guids.Length == 0)
             {
                 guids = AssetDatabase.FindAssets("t:ScriptableObject", new[] { "Assets/Gaussians" });
