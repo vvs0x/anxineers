@@ -12,6 +12,7 @@
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.9",
     "com.unity.xr.openxr": "1.16.1",
+    "net.kleinbeck.gaussians": "https://github.com/ninjamode/Unity-VR-Gaussian-Splatting.git",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.adaptiveperformance": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
