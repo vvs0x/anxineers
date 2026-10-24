@@ -133,6 +133,9 @@ namespace Anxineers.EditorTools
             var room = roomFx.AddComponent<RoomReactionEffect>();
             var so = new SerializedObject(room);
             so.FindProperty("ceiling").objectReferenceValue = ceiling.transform;
+            so.FindProperty("wallInwardMeters").floatValue = 0.8f;
+            so.FindProperty("ceilingDropMeters").floatValue = 0.5f;
+            so.FindProperty("exitShrink").floatValue = 0.4f;
             var centerGo = new GameObject("Room Center");
             centerGo.transform.SetParent(root.transform, false);
             centerGo.transform.position = new Vector3(0f, 1.4f, 0f);
@@ -149,8 +152,8 @@ namespace Anxineers.EditorTools
             if (objects != null)
             {
                 var oso = new SerializedObject(objects);
-                oso.FindProperty("driftMeters").floatValue = 0.08f;
-                oso.FindProperty("pulseAmount").floatValue = 0.12f;
+                oso.FindProperty("driftMeters").floatValue = 0.03f;
+                oso.FindProperty("pulseAmount").floatValue = 0.05f;
                 oso.ApplyModifiedPropertiesWithoutUndo();
             }
 

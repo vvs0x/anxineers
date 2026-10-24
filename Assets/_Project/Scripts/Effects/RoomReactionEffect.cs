@@ -27,15 +27,15 @@ namespace Anxineers.Effects
 
         [Header("Walls")]
         [Tooltip("How far each wall moves toward the room center at full effect, in meters. Keep it small so nothing reaches the user.")]
-        [SerializeField, Range(0f, 1f)] private float wallInwardMeters = 0.5f;
+        [SerializeField, Range(0f, 1.2f)] private float wallInwardMeters = 0.8f;
 
         [Header("Ceiling")]
-        [SerializeField, Range(0f, 0.8f)] private float ceilingDropMeters = 0.35f;
+        [SerializeField, Range(0f, 0.8f)] private float ceilingDropMeters = 0.5f;
         [SerializeField] private Transform ceiling;
 
         [Header("Exit")]
         [Tooltip("How much doors and windows shrink at full effect (0.3 = 30% smaller).")]
-        [SerializeField, Range(0f, 0.6f)] private float exitShrink = 0.3f;
+        [SerializeField, Range(0f, 0.6f)] private float exitShrink = 0.4f;
 
         [Header("Targets")]
         [SerializeField] private Transform roomCenter;
