@@ -1,7 +1,7 @@
 {
     "name": "Anxineers.Effects",
     "rootNamespace": "Anxineers.Effects",
-    "references": ["Anxineers.Core", "Anxineers.Gaze"],
+    "references": ["Anxineers.Core", "Anxineers.Gaze", "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.Universal.Runtime"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
