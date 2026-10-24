@@ -1,5 +1,6 @@
 using System;
 using Anxineers.Core;
+using Anxineers.Gaze;
 using UnityEngine;
 
 namespace Anxineers.Effects
@@ -17,6 +18,8 @@ namespace Anxineers.Effects
             public Transform wall;
             [Tooltip("Things mounted on this wall (door, window, frames). They move with it.")]
             public Transform[] attached;
+            [Tooltip("Optional. Looking at this wall makes it lean in extra.")]
+            public GazeTarget gaze;
         }
 
         [Serializable]
@@ -32,6 +35,9 @@ namespace Anxineers.Effects
         [Header("Ceiling")]
         [SerializeField, Range(0f, 0.8f)] private float ceilingDropMeters = 0.5f;
         [SerializeField] private Transform ceiling;
+        [Tooltip("Optional. Looking at the ceiling lowers it extra.")]
+        [SerializeField] private GazeTarget ceilingGaze;
+        [SerializeField, Range(0f, 1f)] private float ceilingGazeExtraMeters = 0.2f;
 
         [Header("Exit")]
         [Tooltip("How much doors and windows shrink at full effect (0.3 = 30% smaller).")]
@@ -44,6 +50,7 @@ namespace Anxineers.Effects
 
         private Vector3[] wallBase;
         private Vector3[] wallDir;
+        private float[] wallDistance;
         private Vector3[][] attachedBase;
         private Vector3 ceilingBase;
         private Vector3[] exitPos;
@@ -67,6 +74,7 @@ namespace Anxineers.Effects
 
             wallBase = new Vector3[walls.Length];
             wallDir = new Vector3[walls.Length];
+            wallDistance = new float[walls.Length];
             attachedBase = new Vector3[walls.Length][];
             for (int i = 0; i < walls.Length; i++)
             {
@@ -83,6 +91,7 @@ namespace Anxineers.Effects
                 wallDir[i] = Mathf.Abs(toCenter.x) > Mathf.Abs(toCenter.z)
                     ? new Vector3(Mathf.Sign(toCenter.x), 0f, 0f)
                     : new Vector3(0f, 0f, Mathf.Sign(toCenter.z));
+                wallDistance[i] = Mathf.Abs(Vector3.Dot(toCenter, wallDir[i]));
 
                 int count = w.attached != null ? w.attached.Length : 0;
                 attachedBase[i] = new Vector3[count];
@@ -117,7 +126,6 @@ namespace Anxineers.Effects
                 return;
             }
 
-            float wallOffset = wallInwardMeters * value;
             for (int i = 0; i < walls.Length; i++)
             {
                 WallEntry w = walls[i];
@@ -125,7 +133,10 @@ namespace Anxineers.Effects
                 {
                     continue;
                 }
-                Vector3 offset = wallDir[i] * wallOffset;
+                float meters = Mathf.Max(wallInwardMeters, wallInwardFraction * wallDistance[i]) * value;
+                float gaze = w.gaze != null ? w.gaze.Value : 0f;
+                meters += wallGazeExtraMeters * gaze * value;
+                Vector3 offset = wallDir[i] * meters;
                 w.wall.position = wallBase[i] + offset;
                 for (int j = 0; j < attachedBase[i].Length; j++)
                 {
@@ -138,7 +149,9 @@ namespace Anxineers.Effects
 
             if (ceiling != null)
             {
-                ceiling.position = ceilingBase + Vector3.down * (ceilingDropMeters * value);
+                float ceilingGazeValue = ceilingGaze != null ? ceilingGaze.Value : 0f;
+                float drop = ceilingDropMeters * value + ceilingGazeExtraMeters * ceilingGazeValue * value;
+                ceiling.position = ceilingBase + Vector3.down * drop;
             }
 
             for (int i = 0; i < exits.Length; i++)

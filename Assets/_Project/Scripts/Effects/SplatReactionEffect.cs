@@ -33,13 +33,13 @@ namespace Anxineers.Effects
         [Tooltip("The splats grow, so the room gets soft and unreal. Added to a size of 1 at full effect (0.15 = 15% bigger splats). Large values make blobs that fill the screen, especially with decimated scans.")]
         [SerializeField, Range(0f, 1f)] private float blurSplatGrowth = 0.15f;
 
-        [Tooltip("The splat renderer component (Gaussians.ThreeD.GaussianSplat3DRenderer). Optional: without it only the squash is used.")]
-        [SerializeField] private Component splatRenderer;
+        [Tooltip("The splat renderer components (Gaussians.ThreeD.GaussianSplat3DRenderer). Optional: without them only the squash is used.")]
+        [SerializeField] private Component[] splatRenderers = new Component[0];
 
         private Vector3 baseScale = Vector3.one;
         private bool captured;
         private FieldInfo scaleField;
-        private float baseSplatScale = 1f;
+        private float[] baseSplatScales = new float[0];
 
         public override EffectKind Kind => EffectKind.Space;
 
@@ -57,17 +57,20 @@ namespace Anxineers.Effects
                 baseScale = pivot.localScale;
                 captured = true;
             }
-            if (splatRenderer != null)
+            scaleField = null;
+            baseSplatScales = new float[splatRenderers != null ? splatRenderers.Length : 0];
+            for (int i = 0; i < baseSplatScales.Length; i++)
             {
-                // Reflection keeps this script free of any dependency on the splat package.
-                scaleField = splatRenderer.GetType().GetField("m_SplatScale", BindingFlags.Public | BindingFlags.Instance);
-                if (scaleField != null && scaleField.FieldType == typeof(float))
+                if (splatRenderers[i] == null)
                 {
-                    baseSplatScale = (float)scaleField.GetValue(splatRenderer);
+                    continue;
                 }
-                else
+                // Reflection keeps this script free of any dependency on the splat package.
+                FieldInfo field = splatRenderers[i].GetType().GetField("m_SplatScale", BindingFlags.Public | BindingFlags.Instance);
+                if (field != null && field.FieldType == typeof(float))
                 {
-                    scaleField = null;
+                    scaleField = field;
+                    baseSplatScales[i] = (float)field.GetValue(splatRenderers[i]);
                 }
             }
         }
@@ -86,9 +89,15 @@ namespace Anxineers.Effects
             float v = 1f - verticalSquash * value;
             float breath = 1f + breathAmount * value * Mathf.Sin(2f * Mathf.PI * breathHz * Time.time);
             pivot.localScale = new Vector3(baseScale.x * h * breath, baseScale.y * v * breath, baseScale.z * h * breath);
-            if (scaleField != null && splatRenderer != null)
+            if (scaleField != null)
             {
-                scaleField.SetValue(splatRenderer, baseSplatScale * (1f + blurSplatGrowth * value));
+                for (int i = 0; i < splatRenderers.Length && i < baseSplatScales.Length; i++)
+                {
+                    if (splatRenderers[i] != null)
+                    {
+                        scaleField.SetValue(splatRenderers[i], baseSplatScales[i] * (1f + blurSplatGrowth * value));
+                    }
+                }
             }
         }
 
@@ -98,9 +107,15 @@ namespace Anxineers.Effects
             {
                 pivot.localScale = baseScale;
             }
-            if (scaleField != null && splatRenderer != null)
+            if (scaleField != null)
             {
-                scaleField.SetValue(splatRenderer, baseSplatScale);
+                for (int i = 0; i < splatRenderers.Length && i < baseSplatScales.Length; i++)
+                {
+                    if (splatRenderers[i] != null)
+                    {
+                        scaleField.SetValue(splatRenderers[i], baseSplatScales[i]);
+                    }
+                }
             }
         }
     }

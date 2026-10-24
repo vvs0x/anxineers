@@ -99,3 +99,11 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - `PromptPanel`: translucent rounded boxes (procedural sprites), round dots, panel placed 1.0 m in front of the user (was 1.6 m, ended up behind walls), canvas scale 0.0007 m per unit.
 - Listening level bar replaced by a soft pulsing orb (0.3 Hz, voice level smoothed over 0.5 s so it never flickers).
 - Font: `Assets/_Project/Resources/Fonts/CalycesInc-Regular` (.ttf or .otf, not in the repo until the user adds it, check the font licence before committing). Falls back to the built-in font with a console warning.
+
+### Splat parts (walls, ceiling, objects move on their own)
+- Problem: one big splat can only be squashed as a whole ("it just stretches"), and has no gaze targets or objects.
+- `Tools/split_splat.py scene.ply Assets/_Project/Splats/parts` cuts the hall into ceiling, floor, 4 walls, free and wall-mounted objects (found from a top-down grid) and a few leftovers. Every part is re-centred on itself and written with `manifest.json` (git-ignored, regenerate on each machine).
+- `Anxineers/Phase 6/Add Splat Environment To Room` imports the parts (Medium preset, via reflection on the package importer), puts them in a `GaussiansGroup` (shared sorting), adds colliders and gaze targets, and wires three effects: `Effect Splat Room` (walls lean in by max(0.8 m, 30 % of their distance), extra when looked at, ceiling drops, mounted objects follow their wall), `Effect Splat Objects` (free objects drift, pulse and creep toward the user while looked at, up to 0.6 m) and `Effect Splat` (breathing, blur, small squash).
+- Without a manifest the builder falls back to the single hall asset and only squashes the whole room.
+- Blockout furniture gaze targets are switched off while the splat is shown (SplatEnvironment).
+- Untested: part import by reflection, group membership, wall gaps at corners, object/wall detection quality.

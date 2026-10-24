@@ -25,6 +25,10 @@ namespace Anxineers.Effects
         [Tooltip("Pulses per second, capped to a slow range.")]
         [SerializeField, Range(0.05f, 1f)] private float pulseHz = 0.25f;
 
+        [Header("Approach")]
+        [Tooltip("Objects creep toward the user while looked at, by up to this many meters (horizontal only). 0 = off.")]
+        [SerializeField, Range(0f, 1.5f)] private float approachMeters = 0f;
+
         [Header("Targets")]
         [Tooltip("Leave empty to use every GazeTarget in the scene.")]
         [SerializeField] private GazeTarget[] targets;
@@ -92,7 +96,18 @@ namespace Anxineers.Effects
                 float pulse = 0.5f + 0.5f * Mathf.Sin(2f * Mathf.PI * pulseHz * time + e.Phase);
 
                 Transform t = e.Target.transform;
-                t.position = e.BasePosition + dir * (driftMeters * local);
+                Vector3 position = e.BasePosition + dir * (driftMeters * local);
+                Camera cam = Camera.main;
+                if (approachMeters > 0f && cam != null)
+                {
+                    Vector3 toUser = cam.transform.position - e.BasePosition;
+                    toUser.y = 0f;
+                    if (toUser.sqrMagnitude > 0.01f)
+                    {
+                        position += toUser.normalized * (approachMeters * local * e.Target.Value);
+                    }
+                }
+                t.position = position;
                 t.localScale = e.BaseScale * (1f + pulseAmount * local * pulse);
             }
         }

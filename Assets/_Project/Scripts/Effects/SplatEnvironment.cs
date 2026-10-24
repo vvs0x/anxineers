@@ -1,3 +1,4 @@
+using Anxineers.Gaze;
 using UnityEngine;
 
 namespace Anxineers.Effects
@@ -90,6 +91,12 @@ namespace Anxineers.Effects
                 for (int i = 0; i < renderers.Length; i++)
                 {
                     renderers[i].enabled = show;
+                }
+                // The hidden blockout furniture must not act as gaze targets while the splat is shown.
+                GazeTarget[] targets = blockoutRoot.GetComponentsInChildren<GazeTarget>(true);
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    targets[i].enabled = show;
                 }
             }
         }
