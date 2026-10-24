@@ -1,7 +1,7 @@
 {
     "name": "Anxineers.Debug",
     "rootNamespace": "Anxineers.DebugTools",
-    "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.UI"],
+    "references": ["Anxineers.Core", "Anxineers.Gaze", "Anxineers.Effects", "Anxineers.UI", "Unity.InputSystem"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
