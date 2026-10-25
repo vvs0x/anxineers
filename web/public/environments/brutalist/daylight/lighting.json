@@ -1,0 +1,52 @@
+{
+  "source": "brutalist_A_final.blend",
+  "coordinateTransform": "Blender XYZ to Three X,Z,-Y; metres",
+  "world": {
+    "file": "authored-world_1k.hdr",
+    "size": [
+      1024,
+      512
+    ],
+    "strength": 1.0,
+    "blendMode": "COLOR",
+    "blendFactor": 0.44999998807907104,
+    "blendColor": [
+      0.10653835535049438,
+      0.410763144493103,
+      0.7874181866645813,
+      1.0
+    ],
+    "sourceFile": "dresden_square_1k.hdr",
+    "bakedNodeGraph": true,
+    "bakedStrength": true,
+    "orientation": "equirectangular centre Three+X, image right Three+Z, image up Three+Y"
+  },
+  "lights": [
+    {
+      "name": "Sun",
+      "type": "SUN",
+      "energy": 30.0,
+      "colorLinear": [
+        1.0,
+        0.8840534687042236,
+        0.6920861005783081
+      ],
+      "position": [
+        -15.0,
+        6.0,
+        -0.0
+      ],
+      "direction": [
+        0.6952662467956543,
+        -0.18223559856414795,
+        0.6952662467956543
+      ],
+      "angleRadians": 0.02617993950843811
+    }
+  ],
+  "view": {
+    "transform": "Khronos PBR Neutral",
+    "exposure": 0.0,
+    "gamma": 1.0
+  }
+}

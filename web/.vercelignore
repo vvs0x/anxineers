@@ -1,0 +1,8 @@
+.env
+.env.*
+certs/
+node_modules/
+.netlify/
+test/
+scripts/
+*.log

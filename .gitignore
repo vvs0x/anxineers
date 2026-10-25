@@ -208,3 +208,6 @@ web/.env
 web/.env.*
 !web/.env.example
 .DS_Store
+
+# Local deployment state
+.netlify/

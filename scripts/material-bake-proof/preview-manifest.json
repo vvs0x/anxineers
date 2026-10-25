@@ -1,0 +1,45 @@
+{
+  "source": "/Users/leonarda/Documents/CODING/art-hack/brutalist_A_final.blend",
+  "sourceSha256": "d5beea3cef9322f7a31de0a8402337b7af021bdd734c495e9407d704552b3f98",
+  "sourceUnchanged": true,
+  "output": "room-preview.glb",
+  "bytes": 582488,
+  "coordinateSystem": "Blender metres exported glTF Y-up: (x, z, -y)",
+  "scale": 1,
+  "bakeSamples": 4,
+  "atlas": [
+    {
+      "group": "floor",
+      "objects": [
+        "floor_tiles"
+      ],
+      "resolution": 256,
+      "ormResolution": 256
+    }
+  ],
+  "meshes": [
+    {
+      "name": "floor_tiles",
+      "source": "floor_tiles",
+      "vertices": 3744,
+      "triangles": 7332,
+      "materials": [
+        "concrete_floor.001.atlas.floor"
+      ]
+    }
+  ],
+  "glassAdaptation": {
+    "source": "glass.external",
+    "web": "glass.external.web",
+    "colorLinear": [
+      0.675000011920929,
+      0.675000011920929,
+      0.675000011920929,
+      1.0
+    ],
+    "roughness": 0.22499999403953552,
+    "ior": 1.0499999523162842,
+    "transmission": 1
+  },
+  "elapsedSeconds": 2.001940965652466
+}

@@ -9,6 +9,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createSpectatorRelay } from './spectator-relay.mjs';
+import { X509Certificate } from 'node:crypto';
+import { isIP } from 'node:net';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const HTTP_PORT = Number(process.env.PORT || 8080);
@@ -25,11 +28,24 @@ if (fs.existsSync(envFile)) {
 
 const app = express();
 app.disable('x-powered-by');
+let httpsReady = false;
+// Typing the laptop IP with :8080 leads to the secure origin required by Quest VR.
+// Localhost remains convenient for the laptop-only spectator page.
+app.use((req, res, next) => {
+  if (httpsReady && !req.secure && isIP(req.hostname) === 4 && req.hostname !== '127.0.0.1') {
+    return res.redirect(307, `https://${req.hostname}:${HTTPS_PORT}${req.originalUrl}`);
+  }
+  next();
+});
+const spectator = createSpectatorRelay();
+app.use('/vendor/three-mesh-bvh', express.static(path.join(__dirname, 'node_modules/three-mesh-bvh/build'), { maxAge: '1d' }));
 app.use('/vendor/three', express.static(path.join(__dirname, 'node_modules/three'), { maxAge: '1d' }));
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 0 }));
 
 app.get('/api/status', (_req, res) => {
-  res.json({ ok: true, stt: Boolean(process.env.ELEVENLABS_API_KEY) });
+  res.json({ ok: true, stt: Boolean(process.env.ELEVENLABS_API_KEY), spectator: true,
+    headsetUrls: httpsReady ? lanAddresses().map(ip => `https://${ip}:${HTTPS_PORT}`) : [],
+    spectatorUrl: `http://localhost:${HTTP_PORT}/spectator.html` });
 });
 
 // Speech to text. The browser posts the raw audio blob, we forward it to ElevenLabs.
@@ -64,31 +80,42 @@ function lanAddresses() {
   return out;
 }
 
-http.createServer(app).listen(HTTP_PORT, () => {
+const httpServer = http.createServer(app);
+spectator.attach(httpServer);
+httpServer.listen(HTTP_PORT, () => {
   console.log(`\nHTTP   http://localhost:${HTTP_PORT}   (USB: adb reverse tcp:${HTTP_PORT} tcp:${HTTP_PORT})`);
+  console.log(`LAPTOP http://localhost:${HTTP_PORT}/spectator.html`);
 });
 
 try {
   const certDir = path.join(__dirname, 'certs');
   const keyPath = path.join(certDir, 'key.pem');
   const certPath = path.join(certDir, 'cert.pem');
-  if (!fs.existsSync(keyPath)) {
+  const ips = lanAddresses();
+  let validCertificate = false;
+  try {
+    const certificate = new X509Certificate(fs.readFileSync(certPath));
+    validCertificate = fs.existsSync(keyPath) && Date.parse(certificate.validTo) > Date.now() + 86400_000 && ips.every(ip => certificate.checkIP(ip));
+  } catch { /* First launch or the local network address changed. */ }
+  if (!validCertificate) {
     const selfsigned = (await import('selfsigned')).default ?? (await import('selfsigned'));
-    const ips = lanAddresses();
     const pems = await selfsigned.generate(
       [{ name: 'commonName', value: 'anxineers.local' }],
       {
-        days: 365, keySize: 2048, algorithm: 'sha256',
+        notAfterDate: new Date(Date.now() + 365 * 86400_000), keySize: 2048, algorithm: 'sha256',
         extensions: [{ name: 'subjectAltName', altNames: [
           { type: 2, value: 'localhost' }, { type: 7, ip: '127.0.0.1' },
           ...ips.map((ip) => ({ type: 7, ip })),
         ] }],
       });
     fs.mkdirSync(certDir, { recursive: true });
-    fs.writeFileSync(keyPath, pems.private);
+    fs.writeFileSync(keyPath, pems.private, { mode: 0o600 });
     fs.writeFileSync(certPath, pems.cert);
   }
-  https.createServer({ key: fs.readFileSync(keyPath), cert: fs.readFileSync(certPath) }, app).listen(HTTPS_PORT, () => {
+  const httpsServer = https.createServer({ key: fs.readFileSync(keyPath), cert: fs.readFileSync(certPath) }, app);
+  spectator.attach(httpsServer);
+  httpsServer.listen(HTTPS_PORT, () => {
+    httpsReady = true;
     for (const ip of lanAddresses()) console.log(`HTTPS  https://${ip}:${HTTPS_PORT}   (Wi-Fi, accept the certificate warning once)`);
     console.log(process.env.ELEVENLABS_API_KEY ? 'ElevenLabs key found.' : 'No ELEVENLABS_API_KEY set: voice input is disabled.');
   });

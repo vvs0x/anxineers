@@ -1,0 +1,595 @@
+{
+  "source": "/Users/leonarda/Documents/CODING/art-hack/brutalist_A_final.blend",
+  "sourceSha256": "d5beea3cef9322f7a31de0a8402337b7af021bdd734c495e9407d704552b3f98",
+  "sourceUnchanged": true,
+  "output": "room-textured.glb",
+  "bytes": 18367468,
+  "coordinateSystem": "Blender metres exported glTF Y-up: (x, z, -y)",
+  "scale": 1,
+  "bakeSamples": 16,
+  "atlas": [
+    {
+      "group": "architecture",
+      "objects": [
+        "walls.001",
+        "walls.panels.001",
+        "walls.002",
+        "walls.outside.panels",
+        "walls.outside",
+        "Plane.001"
+      ],
+      "resolution": 2048,
+      "ormResolution": 1024
+    },
+    {
+      "group": "floor",
+      "objects": [
+        "floor.001",
+        "floor_tiles"
+      ],
+      "resolution": 1024,
+      "ormResolution": 512
+    },
+    {
+      "group": "props",
+      "objects": [
+        "Plane",
+        "sculpture.001",
+        "sculpture.002",
+        "sculpture.003",
+        "sculpture.004",
+        "sculpture.005",
+        "sculpture.006",
+        "sculpture.008",
+        "stand.002",
+        "stand.003",
+        "stand.004",
+        "stand.006",
+        "stand.007",
+        "stand.008",
+        "stand.009"
+      ],
+      "resolution": 1024,
+      "ormResolution": 512
+    }
+  ],
+  "meshes": [
+    {
+      "name": "walls.001",
+      "source": "walls.001",
+      "vertices": 2379,
+      "triangles": 4742,
+      "materials": [
+        "concrete_procedural.dark.atlas.architecture",
+        "concrete_procedural.atlas.architecture"
+      ]
+    },
+    {
+      "name": "floor.001",
+      "source": "floor.001",
+      "vertices": 352,
+      "triangles": 700,
+      "materials": [
+        "concrete_procedural.atlas.floor"
+      ]
+    },
+    {
+      "name": "floor_tiles",
+      "source": "floor_tiles",
+      "vertices": 3744,
+      "triangles": 7332,
+      "materials": [
+        "concrete_floor.001.atlas.floor"
+      ]
+    },
+    {
+      "name": "Plane",
+      "source": "Plane",
+      "vertices": 336,
+      "triangles": 656,
+      "materials": [
+        "concrete_procedural.bench.atlas.props"
+      ]
+    },
+    {
+      "name": "ceiling_light.010",
+      "source": "ceiling_light.010",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.011",
+      "source": "ceiling_light.011",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.012",
+      "source": "ceiling_light.012",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.013",
+      "source": "ceiling_light.013",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.014",
+      "source": "ceiling_light.014",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.015",
+      "source": "ceiling_light.015",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.016",
+      "source": "ceiling_light.016",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.017",
+      "source": "ceiling_light.017",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.018",
+      "source": "ceiling_light.018",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.019",
+      "source": "ceiling_light.019",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light.020",
+      "source": "ceiling_light.020",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_lights_rail",
+      "source": "ceiling_lights_rail",
+      "vertices": 9240,
+      "triangles": 18376,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "walls.panels.001",
+      "source": "walls.panels.001",
+      "vertices": 56919,
+      "triangles": 102688,
+      "materials": [
+        "concrete_procedural.walls.atlas.architecture",
+        "concrete_procedural.ceiling.atlas.architecture"
+      ]
+    },
+    {
+      "name": "walls.002",
+      "source": "walls.002",
+      "vertices": 960,
+      "triangles": 1880,
+      "materials": [
+        "concrete_procedural.atlas.architecture"
+      ]
+    },
+    {
+      "name": "walls.outside.panels",
+      "source": "walls.outside.panels",
+      "vertices": 29700,
+      "triangles": 53658,
+      "materials": [
+        "concrete_procedural.walls.outside.atlas.architecture"
+      ]
+    },
+    {
+      "name": "walls.outside",
+      "source": "walls.outside",
+      "vertices": 160,
+      "triangles": 316,
+      "materials": [
+        "concrete_procedural.walls.outside.atlas.architecture"
+      ]
+    },
+    {
+      "name": "ceiling_light_big.001",
+      "source": "ceiling_light_big.001",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light_big.002",
+      "source": "ceiling_light_big.002",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light_big.003",
+      "source": "ceiling_light_big.003",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light_big.004",
+      "source": "ceiling_light_big.004",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light_big.005",
+      "source": "ceiling_light_big.005",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "ceiling_light_big.006",
+      "source": "ceiling_light_big.006",
+      "vertices": 4346,
+      "triangles": 8334,
+      "materials": [
+        "lights_metal",
+        "lights_chrome",
+        "lights_emission"
+      ]
+    },
+    {
+      "name": "wall_plug.001",
+      "source": "wall_plug.001",
+      "vertices": 882,
+      "triangles": 1678,
+      "materials": [
+        "plastic_white",
+        "black"
+      ]
+    },
+    {
+      "name": "wall_switch.001",
+      "source": "wall_switch.001",
+      "vertices": 1368,
+      "triangles": 2466,
+      "materials": [
+        "plastic_white",
+        "black"
+      ]
+    },
+    {
+      "name": "wall_plug.002",
+      "source": "wall_plug.002",
+      "vertices": 882,
+      "triangles": 1678,
+      "materials": [
+        "plastic_white",
+        "black"
+      ]
+    },
+    {
+      "name": "wall_plug.003",
+      "source": "wall_plug.003",
+      "vertices": 882,
+      "triangles": 1678,
+      "materials": [
+        "plastic_white",
+        "black"
+      ]
+    },
+    {
+      "name": "wall_plug.004",
+      "source": "wall_plug.004",
+      "vertices": 882,
+      "triangles": 1678,
+      "materials": [
+        "plastic_white",
+        "black"
+      ]
+    },
+    {
+      "name": "Plane.001",
+      "source": "Plane.001",
+      "vertices": 48,
+      "triangles": 70,
+      "materials": [
+        "concrete_procedural.atlas.architecture"
+      ]
+    },
+    {
+      "name": "sculpture.000",
+      "source": "sculpture.000",
+      "vertices": 4998,
+      "triangles": 10016,
+      "materials": [
+        "marble_statue"
+      ]
+    },
+    {
+      "name": "sculpture.001",
+      "source": "sculpture.001",
+      "vertices": 4204,
+      "triangles": 8384,
+      "materials": [
+        "metal_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "sculpture.002",
+      "source": "sculpture.002",
+      "vertices": 1931,
+      "triangles": 3844,
+      "materials": [
+        "marble_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "sculpture.003",
+      "source": "sculpture.003",
+      "vertices": 2548,
+      "triangles": 5100,
+      "materials": [
+        "marble_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "sculpture.004",
+      "source": "sculpture.004",
+      "vertices": 4724,
+      "triangles": 9444,
+      "materials": [
+        "marble_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "sculpture.005",
+      "source": "sculpture.005",
+      "vertices": 1637,
+      "triangles": 3256,
+      "materials": [
+        "metal_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "sculpture.006",
+      "source": "sculpture.006",
+      "vertices": 7605,
+      "triangles": 15216,
+      "materials": [
+        "metal_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "sculpture.007",
+      "source": "sculpture.007",
+      "vertices": 141367,
+      "triangles": 282734,
+      "materials": [
+        "marble_statue"
+      ]
+    },
+    {
+      "name": "sculpture.008",
+      "source": "sculpture.008",
+      "vertices": 3386,
+      "triangles": 6756,
+      "materials": [
+        "metal_statue.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.001",
+      "source": "stand.001",
+      "vertices": 4298,
+      "triangles": 8384,
+      "materials": [
+        "marble_stand",
+        "chrome_stand"
+      ]
+    },
+    {
+      "name": "stand.002",
+      "source": "stand.002",
+      "vertices": 1082,
+      "triangles": 2096,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.003",
+      "source": "stand.003",
+      "vertices": 1082,
+      "triangles": 2096,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.004",
+      "source": "stand.004",
+      "vertices": 2666,
+      "triangles": 5168,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.005",
+      "source": "stand.005",
+      "vertices": 2474,
+      "triangles": 4832,
+      "materials": [
+        "marble_stand",
+        "chrome_stand"
+      ]
+    },
+    {
+      "name": "stand.006",
+      "source": "stand.006",
+      "vertices": 1082,
+      "triangles": 2096,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.007",
+      "source": "stand.007",
+      "vertices": 3146,
+      "triangles": 6128,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.008",
+      "source": "stand.008",
+      "vertices": 3146,
+      "triangles": 6128,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "stand.009",
+      "source": "stand.009",
+      "vertices": 3146,
+      "triangles": 6128,
+      "materials": [
+        "marble_stand.atlas.props",
+        "chrome_stand.atlas.props"
+      ]
+    },
+    {
+      "name": "windows_frame",
+      "source": "windows.001",
+      "vertices": 16752,
+      "triangles": 33504,
+      "materials": [
+        "frame_windows"
+      ]
+    },
+    {
+      "name": "windows_glass",
+      "source": "windows.001",
+      "vertices": 728,
+      "triangles": 1404,
+      "materials": [
+        "glass.external.web"
+      ]
+    }
+  ],
+  "glassAdaptation": {
+    "source": "glass.external",
+    "web": "glass.external.web",
+    "colorLinear": [
+      0.675000011920929,
+      0.675000011920929,
+      0.675000011920929,
+      1.0
+    ],
+    "roughness": 0.22499999403953552,
+    "ior": 1.0499999523162842,
+    "transmission": 1
+  },
+  "elapsedSeconds": 279.8276481628418,
+  "meshoptCompressed": true,
+  "uncompressedBytes": 32973776,
+  "authoredLightingManifest": "../daylight/lighting.json"
+}

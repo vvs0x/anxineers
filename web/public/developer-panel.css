@@ -1,0 +1,23 @@
+#developer-toggle { position:fixed; top:12px; right:16px; z-index:8; padding:10px 16px; min-height:44px; border:1px solid #b7c9d344; border-radius:24px; color:#dce9ed; background:#172126ed; cursor:pointer; }
+#developer-panel { position:fixed; inset:0 0 0 auto; width:min(380px, 100vw); box-sizing:border-box; z-index:20; overflow-y:auto; overscroll-behavior:contain; color:#e7eff3; background:#121a21; border-left:1px solid #ffffff22; box-shadow:-16px 0 50px #0005; padding:22px; font:14px/1.45 'Roboto Mono',monospace; }
+#developer-panel header { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+#developer-panel h2 { font-size:22px; margin:4px 0; font-weight:550; }
+#developer-panel small { color:#98c7b6; font-size:10px; letter-spacing:.15em; }
+#developer-panel button { color:inherit; background:#ffffff0c; border:1px solid #ffffff25; border-radius:8px; padding:9px 12px; min-height:40px; cursor:pointer; }
+#developer-panel button:hover { background:#ffffff20; }
+#developer-panel [data-close] { font-size:24px; padding:0; width:40px; }
+.dev-note { font-size:12px; color:#a4b5be; margin:16px 0; }
+.dev-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:18px 0; }
+.dev-diagnostics { background:#080f1599; border:1px solid #ffffff16; border-radius:10px; padding:12px; }
+.dev-diagnostics h3 { font-size:13px; margin:0 0 8px; }
+.dev-diagnostics pre { font:11px/1.65 'Roboto Mono',monospace; color:#a7d7c6; white-space:pre-wrap; overflow-wrap:anywhere; }
+.dev-toggles label { display:flex; align-items:center; gap:7px; margin-top:8px; font-size:12px; }
+#developer-panel input { accent-color:#9ddfc4; }
+.dev-controls details { border-bottom:1px solid #ffffff18; padding:16px 0; }
+.dev-controls summary { font-weight:550; cursor:pointer; }
+.dev-controls label { display:grid; grid-template-columns:1fr auto; gap:8px; margin-top:16px; font-size:12px; color:#c4d1d8; }
+.dev-controls output { font-variant-numeric:tabular-nums; color:#a7d7c6; }
+.dev-controls input[type=range] { grid-column:1/-1; width:100%; margin:0; min-height:24px; cursor:pointer; }
+#developer-panel footer { display:flex; gap:12px; align-items:center; padding-top:20px; }
+#developer-panel footer span { font-size:11px; color:#8ca69c; }
+.in-vr #developer-toggle, .in-vr #developer-panel { display:none; }

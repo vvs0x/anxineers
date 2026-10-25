@@ -1,3 +1,4 @@
+import { settlingGain } from './settling.js';
 import { PROFILES, EFFECT_DEFAULTS, KINDS } from './profiles.js';
 
 export const STATES = ['Calm', 'Build', 'Peak', 'Recovery'];
@@ -8,7 +9,7 @@ export class AnxietyDirector {
   constructor(profile = PROFILES.Education_Light) {
     this.profile = { ...profile };
     this.settings = JSON.parse(JSON.stringify(EFFECT_DEFAULTS));
-    this.cap = 0.5;
+    this.cap = 1;
     this.intensity = 0;
     this.state = 'Calm';
     this.stateTime = 0;
@@ -38,7 +39,7 @@ export class AnxietyDirector {
     this.override = null;
     this.setState('Recovery');
   }
-  reset() { this.intensity = 0; this.override = null; this.recoverySecondsOverride = null; this.setState('Calm'); }
+  reset() { this.intensity = 0; this.override = null; this.recoverySecondsOverride = null; this._recoveryFrom = 0; this._gaze = null; for (const k of KINDS) this.smoothed[k] = 0; this.setState('Calm'); }
   setTargetOverride(v) { this.override = v == null ? null : clamp01(v); }
 
   get level() { return Math.min(this.intensity, this.cap); }
@@ -56,17 +57,16 @@ export class AnxietyDirector {
       switch (this.state) {
         case 'Calm': this.intensity = Math.max(0, this.intensity - dt * 0.3); break;
         case 'Build':
-          this.intensity = Math.min(p.peak, this.intensity + (p.peak / Math.max(0.1, p.build)) * dt);
-          if (this.intensity >= p.peak - 1e-4) this.setState('Peak');
+          this.intensity = Math.min(p.peak,this.cap) * Math.min(1,this.stateTime/Math.max(.1,p.build));
+          if (this.stateTime >= p.build - 1e-4) this.setState('Peak');
           break;
         case 'Peak':
-          this.intensity = p.peak;
-          if (this.stateTime >= p.hold) this.setState('Recovery');
+          this.intensity = Math.min(p.peak,this.cap);
+          if (!this.sustain && this.stateTime >= p.hold) this.setState('Recovery');
           break;
         case 'Recovery': {
           const dur = this.recoverySecondsOverride ?? p.recovery;
-          const rate = Math.max(this._recoveryFrom, 0.05) / Math.max(0.1, dur);
-          this.intensity = Math.max(0, this.intensity - rate * dt);
+          this.intensity = this._recoveryFrom * settlingGain(this.stateTime, dur);
           if (this.intensity <= 0) { this.recoverySecondsOverride = null; this.setState('Calm'); }
           break;
         }
@@ -95,7 +95,7 @@ export class AnxietyDirector {
     const base = this.peakNormalized;
     const capNorm = this.profile.peak > 0 ? clamp01(this.cap / this.profile.peak) : 0;
     const active = clamp01(this.level / 0.12);                 // no gaze effect while the room is calm
-    const bonus = (1 - base) * clamp01(gaze) * s.gazeWeight * active;
+    const bonus = (this.state === 'Recovery' ? 0 : 1 - base) * clamp01(gaze) * s.gazeWeight * active;
     let v = clamp01(base + bonus);
     v = Math.min(v, Math.min(1, capNorm * 1.5));              // gaze may add a bit, never beyond 1.5x of the cap
     return Math.pow(v, s.exponent) * s.maxValue;

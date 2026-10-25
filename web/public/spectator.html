@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live views · I am still here</title>
+  <link rel="stylesheet" href="/spectator.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="brand">I am still here</a>
+    <span id="connection" role="status" aria-live="polite">Connecting…</span>
+    <button id="back" type="button" hidden>← Everyone</button>
+    <button id="fullscreen" type="button">Full screen</button>
+  </header>
+  <main id="view">
+    <section id="waiting" aria-labelledby="waiting-title">
+      <p class="eyebrow">LIVE GALLERY VIEWS</p>
+      <h1 id="waiting-title">See through their eyes.</h1>
+      <p>Anyone who opens the gallery appears here automatically. Select a view to step inside.</p>
+      <p id="gallery-address" hidden>Gallery address: <a id="gallery-link" href="/" target="_blank" rel="noopener"></a></p>
+    </section>
+    <div id="grid" aria-label="Participant views" hidden></div>
+  </main>
+  <footer><span id="hint">Select a view to enlarge it.</span><span>Participants control their own view. Sound stays on their device.</span></footer>
+  <script type="module" src="/js/spectator-viewer.js"></script>
+</body>
+</html>

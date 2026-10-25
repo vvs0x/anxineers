@@ -1,4 +1,6 @@
-/** Procedural sound, no audio files. Layers fade in with the Audio channel value 0..1. */
+import { VoiceAtmosphere } from './voice-atmosphere.js';
+import { FearAtmosphere } from './fear-atmosphere.js';
+/** Procedural fallback plus cached ElevenLabs voices and atmosphere. */
 export class ProceduralAudio {
   constructor() { this.ctx = null; this.level = 0; this.master = null; this._hb = 0; this.gain = 0.55; }
 
@@ -8,6 +10,9 @@ export class ProceduralAudio {
     if (!Ctx) return;
     const ctx = (this.ctx = new Ctx());
     this.master = ctx.createGain(); this.master.gain.value = 0; this.master.connect(ctx.destination);
+
+    this.voices = new VoiceAtmosphere(ctx, this.master);
+    this.fear = new FearAtmosphere(ctx, this.master);
 
     // rumble: brown noise through a low pass
     const buf = ctx.createBuffer(1, ctx.sampleRate * 4, ctx.sampleRate);
@@ -35,6 +40,8 @@ export class ProceduralAudio {
     this.nextBeat = ctx.currentTime + 1;
   }
 
+  resetSession() { this.voices?.resetSession(); }
+
   _thump(t, vol, f0) {
     const ctx = this.ctx;
     const o = ctx.createOscillator(); o.type = 'sine';
@@ -56,17 +63,23 @@ export class ProceduralAudio {
     });
   }
 
-  update(value, dt) {
+  update(value, dt, options = { active: true, hostile: true }) {
     if (!this.ctx) return;
-    const ctx = this.ctx, t = ctx.currentTime, v = Math.min(1, Math.max(0, value));
+    const ctx = this.ctx, t = ctx.currentTime, v = options.firstPerson === false ? Math.min(.3,Math.max(0,options.preview||0)) : Math.min(1, Math.max(0, value));
     const set = (g, x) => g.gain.setTargetAtTime(x, t, 0.4);
-    set(this.master, this.gain);
+    // Keep the room present beneath the guide; leave the guide's own bus clear.
+    const focus = this.guideActive ? .16 : this.listening ? .22 : 1;
+    this.master.gain.setTargetAtTime(options.active ? this.gain * focus : 0, t, options.settling ? 1.8 : this.guideActive || this.listening ? .08 : .55);
+    this.voices.update(v, options);
+    this.fear?.update(v, dt, options);
     set(this.rumble, v * 0.9);
     set(this.tone, Math.max(0, v - 0.2) * 0.06);
     set(this.drone, Math.max(0, v - 0.1) * 0.05);
     set(this.hb, Math.max(0, v - 0.05) * 1.0);
     // heartbeat tempo 58 -> 96 bpm
     const bpm = 58 + 38 * v;
+    // Resuming a hidden tab must not replay a backlog of missed heartbeats.
+    this.nextBeat = Math.max(this.nextBeat, t);
     while (this.nextBeat < t + 0.1) {
       if (v > 0.05) { this._thump(this.nextBeat, 0.5, 70); this._thump(this.nextBeat + 0.24, 0.32, 60); }
       this.nextBeat += 60 / bpm;

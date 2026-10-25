@@ -2,23 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anxineers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>I am still here</title>
+<link rel="stylesheet" href="/developer-panel.css">
+<link rel="preload" href="/fonts/RobotoMono-Variable.ttf" as="font" type="font/ttf" crossorigin>
 <style>
-  html, body { margin: 0; height: 100%; background: #0c0d0f; overflow: hidden; font-family: system-ui, sans-serif; }
-  canvas { display: block; }
-  #hud { position: fixed; left: 12px; top: 12px; margin: 0; padding: 8px 10px; color: #cfe; background: rgba(0,0,0,.45); font: 12px/1.5 ui-monospace, monospace; white-space: pre; border-radius: 6px; pointer-events: none; }
+  @font-face { font-family:'Roboto Mono'; src:url('/fonts/RobotoMono-Variable.ttf') format('truetype'); font-style:normal; font-weight:100 700; font-display:swap; }
+  button, input, select, textarea, code, pre { font-family:'Roboto Mono', monospace; }
+  #xr * { font-family:'Roboto Mono', monospace !important; }
+  html, body { margin: 0; height: 100%; background: #0c0d0f; overflow: hidden; font-family: 'Roboto Mono', monospace; }
+  canvas { display: block; touch-action: none; }
+  body > canvas { cursor: grab; }
+  body > canvas.dragging { cursor: grabbing; }
+  button { font: inherit; touch-action: manipulation; }
+  button:focus-visible { outline: 3px solid #9fc4ff; outline-offset: 3px; }
+  [hidden] { display: none !important; }
+  #hud { position: fixed; left: 12px; top: 12px; margin: 0; padding: 8px 10px; color: #cfe; background: rgba(0,0,0,.45); font: 12px/1.5 'Roboto Mono', monospace; white-space: pre; border-radius: 6px; pointer-events: none; }
   #status { position: fixed; inset: 0; display: grid; place-items: center; color: #9aa; font-size: 18px; pointer-events: none; }
-  #xr button { z-index: 5; }
+  #xr { position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: max(16px, env(safe-area-inset-left)); z-index: 6; }
+  #xr > * { position: static !important; margin: 0 !important; width: auto !important; min-height: 44px; transform: none !important; }
+  #look-controls { position:fixed; top:max(12px, env(safe-area-inset-top)); left:max(16px, env(safe-area-inset-left)); right:max(16px, env(safe-area-inset-right)); z-index:6; color:#edf2f6; pointer-events:none; }
+  #look-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  #look-actions #developer-toggle { position:static; margin-left:auto; pointer-events:auto; }
+  #explore-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  #explore-actions button[aria-pressed="true"] { background:#9fc4ff; color:#10151c; }
+  #look-controls button, #calm { border:1px solid #ffffff55; border-radius:24px; color:white; background:#172126e8; padding:10px 16px; min-height:44px; cursor:pointer; pointer-events:auto; }
+  #look-hint { margin:8px 0; font-size:13px; line-height:1.4; text-shadow:0 1px 6px #000; }
+  #stage { position:fixed; bottom:82px; left:24px; right:24px; text-align:center; color:#edf2f6; font-size:14px; text-shadow:0 1px 6px #000; pointer-events:none; }
+  #calm { position:fixed; bottom:max(16px, env(safe-area-inset-bottom)); right:max(16px, env(safe-area-inset-right)); z-index:6; }
+  #session-overlay { position:fixed; inset:var(--look-bottom, 110px) max(16px, env(safe-area-inset-right)) 116px max(16px, env(safe-area-inset-left)); z-index:4; display:grid; grid-template-rows:minmax(0, 1fr); place-items:center; pointer-events:none; }
+  #session-card { box-sizing:border-box; width:min(100%, 540px); max-height:100%; overflow-y:auto; padding:clamp(20px, 4vw, 32px); border:1px solid #c8dcff40; border-radius:24px; background:#14181eef; color:#f2f6fb; text-align:center; pointer-events:auto; }
+  #session-title { font-size:clamp(23px, 5vw, 30px); margin:0 0 16px; }
+  #session-body { color:#d5dde8; font-size:16px; line-height:1.6; margin:0; }
+  #session-status { color:#9fc4ff; line-height:1.5; }
+  #session-progress { color:#9fc4ff; letter-spacing:10px; margin:20px 0; }
+  #session-buttons { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
+  #session-buttons:empty { display:none; }
+  #session-buttons button { flex:1 1 160px; min-height:48px; padding:12px 16px; border:1px solid #ffffff35; border-radius:16px; background:#ffffff24; color:#f2f6fb; cursor:pointer; }
+  #session-buttons button:hover:not(:disabled) { background:#9fc4ff; color:#10151c; }
+  #session-buttons button:disabled { opacity:.55; cursor:default; }
+  #session-orb { width:32px; height:32px; margin:52px auto; border-radius:50%; background:#bfd9ff; }
+  .in-vr #calm, .in-vr #stage, .in-vr #look-controls, .in-vr #session-overlay { display:none; }
+  @media (max-height: 500px) {
+    #look-hint { max-width:45%; }
+    #session-overlay { inset:var(--look-bottom, 90px) 16px 70px; }
+    #session-card { padding:16px 24px; }
+    #session-title { font-size:22px; margin-bottom:8px; }
+    #session-body { font-size:15px; }
+    #session-buttons { margin-top:14px; }
+    #stage { bottom:66px; font-size:12px; }
+  }
+  @media (max-width: 360px) { #look-controls button { font-size:13px; padding:10px 12px; } }
+  #session-overlay.opening { inset:0; background:#08090b; z-index:5; padding:24px; }
+  .opening #session-card { width:min(100%, 760px); border:0; border-radius:0; background:transparent; padding:24px; }
+  .opening #session-title { font:500 clamp(32px, 6vw, 52px)/1.25 'Roboto Mono', monospace; margin:0; }
+  .opening #session-title:empty, .opening #session-body:empty { display:none; }
+  .opening #session-body { font:400 clamp(22px, 3.5vw, 30px)/1.5 'Roboto Mono', monospace; color:#f2f3f5; white-space:pre-line; }
+  .opening #session-title.warning { font-size:28px; margin-bottom:12px; }
+  .opening .warning::before { content:'!'; display:block; width:100px; height:92px; margin:0 auto 30px; padding-top:28px; box-sizing:border-box; clip-path:polygon(50% 0,100% 100%,0 100%); background:#f2f3f5; color:#08090b; font:bold 56px/1 'Roboto Mono', monospace; }
+  .opening #session-buttons { margin-top:36px; }
+  .opening #session-buttons button { flex:0 1 auto; padding:14px 28px; border:0; border-radius:999px; background:#3020ef; font:500 20px/1.4 'Roboto Mono', monospace; }
+  .opening #session-buttons button:hover:not(:disabled) { background:#5555ff; color:#f2f3f5; }
+  .opening-active #look-controls, .opening-active #stage, .opening-active #calm { display:none; }
+  #session-overlay.breath-only { inset:0; padding:0; }
+  .breath-only #session-card { display:grid; place-items:center; width:100%; height:100%; max-height:none; padding:0; background:none; border:0; border-radius:0; overflow:visible; pointer-events:none; }
+  .breath-only #session-title, .breath-only #session-body, .breath-only #session-status, .breath-only #session-progress, .breath-only #session-buttons { display:none; }
+  .breath-only #session-orb { width:clamp(32px, 10vmin, 64px); height:clamp(32px, 10vmin, 64px); margin:0; box-shadow:0 0 32px #bfd9ff24; }
+  .breathing-active #look-controls, .breathing-active #stage, .breathing-active #hud, .breathing-active #xr { display:none; }
+  #session-overlay.ground-only { inset:0; padding:0; background:none; pointer-events:none; }
+  .ground-only #session-card { display:none; }
+  #grounding-cue { position:absolute; bottom:max(24px, 5vh); left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:12px; width:max-content; max-width:calc(100vw - 32px); text-align:center; }
+  #grounding-dice { width:64px; height:64px; margin:0; padding:0; border:0; border-radius:0; background:none; pointer-events:auto; cursor:pointer; }
+  #grounding-dice img { display:block; width:100%; height:100%; }
+  #grounding-label { margin:0; color:#f2f6fb; font:400 clamp(16px, 2vw, 20px)/1.4 'Roboto Mono', monospace; text-shadow:0 1px 3px #000, 0 1px 8px #000; }
+  #grounding-continue { min-height:48px; margin:0; padding:12px 28px; border:0; border-radius:999px; color:#f2f6fb; background:#3020ef; font:500 18px/1.4 'Roboto Mono', monospace; pointer-events:auto; cursor:pointer; }
+  #grounding-continue:hover { background:#5555ff; }
+  .grounding-active #look-controls, .grounding-active #stage, .grounding-active #calm, .grounding-active #hud, .grounding-active #xr, .grounding-active #developer-panel { display:none; }
+
+  /* Participant view: only the scene and the same experience cues used in VR. */
+  body:not(.developer-mode) :is(#look-controls, #stage, #calm, #hud, #developer-toggle, #developer-panel, #status) { display:none !important; }
+  #xr { display:none; }
+  body.vr-available.opening-active:not(.in-vr) #xr { display:block; }
+  body:not(.developer-mode) #session-overlay:not(.opening):not(.breath-only):not(.ground-only) { inset:0; padding:24px; }
+
 </style>
 <script type="importmap">
-{ "imports": { "three": "/vendor/three/build/three.module.js", "three/addons/": "/vendor/three/examples/jsm/" } }
+{ "imports": { "three": "/vendor/three/build/three.module.js", "three/addons/": "/vendor/three/examples/jsm/", "three-mesh-bvh": "/vendor/three-mesh-bvh/index.module.js" } }
 </script>
 </head>
-<body>
+<body class="opening-active">
 <pre id="hud"></pre>
 <div id="status"></div>
 <div id="xr"></div>
+<div id="look-controls">
+  <div id="look-actions">
+    <button id="motion" hidden aria-pressed="false">Enable phone motion</button>
+    <button id="recenter" hidden>Recenter view</button>
+  </div>
+  <div id="explore-actions" hidden aria-label="Explore the room">
+    <button id="float" aria-pressed="true">Pause floating</button>
+    <button id="teleport">Teleport elsewhere</button>
+    <button id="perspective" aria-pressed="false">His viewpoint</button>
+  </div>
+  <p id="look-hint" role="status" aria-live="polite"></p>
+  <p id="explore-hint" hidden style="margin:8px 0;font-size:13px;line-height:1.4;text-shadow:0 1px 6px #000" role="status" aria-live="polite"></p>
+</div>
+<div id="session-overlay" class="opening">
+  <section id="session-card" aria-labelledby="session-title">
+    <h1 id="session-title">I am still here</h1>
+    <p id="session-body"></p>
+    <p id="session-status" role="status" aria-live="polite" hidden></p>
+    <div id="session-progress" hidden></div>
+    <div id="session-orb" hidden aria-hidden="true"></div>
+    <div id="session-buttons"><button type="button" disabled>Begin with sound</button></div>
+  </section>
+</div>
+<div id="stage" role="status" aria-live="polite"></div>
+<button id="calm" hidden>Calm now · Space</button>
 <script type="module" src="/js/main.js"></script>
 </body>
 </html>

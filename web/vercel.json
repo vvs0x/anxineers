@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "headers": [{
+    "source": "/(.*)",
+    "headers": [
+      { "key": "Permissions-Policy", "value": "accelerometer=(self), gyroscope=(self), xr-spatial-tracking=(self)" },
+      { "key": "X-Content-Type-Options", "value": "nosniff" }
+    ]
+  }],
+  "rewrites": [
+    { "source": "/vendor/three/:path*", "destination": "https://cdn.jsdelivr.net/npm/three@0.180.0/:path*" },
+    { "source": "/vendor/three-mesh-bvh/:path*", "destination": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.9.16/build/:path*" }
+  ],
+  "functions": { "api/stt.js": { "maxDuration": 30 } }
+}

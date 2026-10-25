@@ -118,3 +118,25 @@ Running log: decisions, versions, open questions, test results. Update this inst
 - Open: CalycesInc-Regular font file still to be supplied; Quest performance (about 480k triangles after hiding off-scene statues) to be measured; voice data handling and consent wording need clinical/data-protection review (see docs/SAFETY_REVIEW.md).
 - Web steps 2 and 3 done (Oct 24): session flow with world-space canvas panels (placed once 1 m in front, controller rays and mouse), texts EN and DE in `web/public/js/texts.js` (placeholders, clinical review needed), grounding by voice through `/api/stt` with silence detection, chime on answer, "stop"/"Stopp" calms the room, breathing orb 4 s in / 6 s out x3, 20 min limit. Without key or microphone the buttons carry the flow.
 - Optional Netlify deploy added (`web/netlify.toml`, functions for `/api/stt` and `/api/status`). three.js via jsDelivr there; CDN path not verified from the build container.
+
+## Gallery seating (24 October 2026)
+- Added five black leather poufs from the supplied `pouf.fbx`, arranged as a central trio and a separate pair. The reusable GLB is reduced to about 37k triangles and shared by all five instances. Source FBX is unchanged; conversion script: `../scripts/prepare_pouf.py`.
+- Central character sits on the 48 cm cushion, facing the west sculpture wall. Hips and seated legs remain anchored during the fear animation; upper-body animation and Signal effects remain active. Camera handoff and reset immediately use the seated pose. Seats stay fixed during room reactions and occlude gaze rays.
+- Passed seating, character, environment, journey and session Node checks. Inspected an offline render of the actual posed meshes; live browser/headset visual check remains pending because browser automation was unavailable.
+
+### Seating placement correction
+- Moved both seating groups into the open east wing shown in the user's screenshot: trio around x=4, pair around x=7.2. The occupied pouf faces west toward the sculptures. Observer spawn moved to (6.1, 2.1); room-effect center now follows the occupied seat instead of a hardcoded old position.
+- Seating and journey checks pass; inspected an offline geometry preview of the arrangement in the room.
+
+### Rear sculpture and wall seating
+- Added six black poufs along the open wing's side walls (eleven total), keeping the existing occupied seat and central groups.
+- Imported `nike+statue.blend` as a compact 282 KB GLB, 2.1 m sculpture on a 0.4 m plinth at (9.6, floorY, 0), behind the west-facing person. External texture files were absent, so the export uses pale stone. Original source preserved; conversion script in `../scripts/prepare_nike.py` relative to the repository parent.
+- Sculpture participates in gaze, object reactions, material effects and wall clearance. Seating, rear-sculpture, environment and wall-gaze checks pass; geometry preview inspected.
+- Wall seats move rigidly with horizontal room contraction and return to their original positions in calm; the occupied chair stays anchored. Verified at 23% contraction.
+
+## Shadow gallery visitors (24 October 2026)
+- Converted the supplied Ch33 and Ch31 walking FBXs into texture-free animated GLBs (`public/characters/visitors`); originals preserved. Conversion: parent workspace `scripts/prepare_visitors.py`.
+- Two charcoal silhouettes walk slowly, soften at their edges, and leave three short fading motion traces. Surface lighting detail is suppressed for an abstract shadow appearance. Ground contact shadows remain soft; motion traces fade while standing.
+- Navigation samples the real floor and walls, retains the connected interior, and runs A* around inflated furniture bounds, the seated person, viewer, and other visitor. Routes follow the room's contraction, anticipate moving obstacles, and step out of their safety buffer without teleportation.
+- Visitors choose reachable viewing spots with unobstructed sculpture sightlines, stand with planted feet for 4–7 seconds, then resume. Horizontal root motion is stripped in the rig's correct coordinate space. Walk and idle poses blend.
+- Full `npm test` passed, including three-minute tours (9 and 21 stops), no furniture collisions, repeating 12% wall-contraction checks, and a head-on encounter retaining >0.82 m separation. Actual posed geometry inspected offline. Live GPU/headset visual validation remains pending; the native browser inspection connection timed out.

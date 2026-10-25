@@ -1,0 +1,316 @@
+{
+  "calm": [
+    {
+      "id": "material",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "playOnce": true,
+      "lines": [
+        "Do you think that sculpture is stone or cast concrete?",
+        "Concrete, I think. Look at the little marks along the edge.",
+        "Oh, yes. I missed those from the other side.",
+        "I like that they left them in. It gives the surface a bit of character."
+      ],
+      "group": "front"
+    },
+    {
+      "id": "light",
+      "speakers": [
+        "C",
+        "D",
+        "E"
+      ],
+      "lines": [
+        "The light catches that edge really nicely.",
+        "It does. The shadow is almost as interesting as the sculpture.",
+        "I wonder how different it looks in the morning.",
+        "We should come earlier next time and see."
+      ],
+      "group": "rear",
+      "playOnce": true
+    },
+    {
+      "id": "space",
+      "speakers": [
+        "F",
+        "G"
+      ],
+      "lines": [
+        "I keep noticing the space between the shapes.",
+        "Yeah, your eye goes straight through the middle.",
+        "It makes the whole thing feel lighter than it is.",
+        "I had not thought of that. It really does."
+      ],
+      "group": "seated",
+      "playOnce": true
+    },
+    {
+      "id": "viewpoints",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "lines": [
+        "From the entrance I thought those two parts were touching.",
+        "There is quite a gap when you come round this side.",
+        "It almost looks like a different piece.",
+        "That is my favourite thing about seeing sculpture in person."
+      ],
+      "group": "front",
+      "playOnce": true
+    },
+    {
+      "id": "presentation",
+      "speakers": [
+        "C",
+        "D",
+        "E"
+      ],
+      "lines": [
+        "How did your presentation go?",
+        "Good, actually. We kept the shorter version.",
+        "The one with the sketches at the start?",
+        "Yeah. They explained it better than all the slides."
+      ],
+      "group": "rear",
+      "playOnce": true
+    },
+    {
+      "id": "monday",
+      "speakers": [
+        "F",
+        "G"
+      ],
+      "lines": [
+        "Did you finish that layout before you left?",
+        "Almost. Just the captions to tidy up on Monday.",
+        "We have those new photos now, too.",
+        "Oh, good. I wanted to try one across the whole page."
+      ],
+      "group": "seated",
+      "playOnce": true
+    },
+    {
+      "id": "scale",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "lines": [
+        "Imagine a tiny version of this on a desk.",
+        "I would probably use it to hold down all my loose papers.",
+        "A very elaborate paperweight.",
+        "It would be the most organised part of my desk."
+      ],
+      "group": "front",
+      "playOnce": true
+    },
+    {
+      "id": "surface",
+      "speakers": [
+        "C",
+        "D",
+        "E"
+      ],
+      "lines": [
+        "I like the rough patch beside that smooth bit.",
+        "Same. You notice the change before you notice the colour.",
+        "It makes me want to draw it, but I would get lost in all those little marks.",
+        "Start with the outline. You can leave the rest for another day."
+      ],
+      "group": "rear",
+      "playOnce": true
+    },
+    {
+      "id": "exhibition",
+      "speakers": [
+        "F",
+        "G"
+      ],
+      "lines": [
+        "They have left a lot of room around each piece.",
+        "It is nice being able to walk all the way around them.",
+        "The last exhibition I went to felt much more packed.",
+        "This one makes me want to take my time."
+      ],
+      "group": "seated",
+      "playOnce": true
+    },
+    {
+      "id": "sketchbook",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "lines": [
+        "Did you bring that little sketchbook?",
+        "Yes, but I only have a pen with me.",
+        "That might be better. No spending ages rubbing things out.",
+        "True. A quick drawing and then we can get a coffee."
+      ],
+      "group": "front",
+      "playOnce": true
+    }
+  ],
+  "anxiety": [
+    {
+      "id": "front-blue",
+      "group": "front",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "playOnce": true,
+      "lines": [
+        "What do you make of the man in blue?",
+        "He seems so out of place among everyone here.",
+        "I cannot imagine him joining this conversation.",
+        "He would probably spend the whole time worrying about what to say."
+      ]
+    },
+    {
+      "id": "rear-distance",
+      "group": "rear",
+      "speakers": [
+        "C",
+        "D",
+        "E"
+      ],
+      "playOnce": true,
+      "lines": [
+        "The blue one seems separate from the rest of the room.",
+        "There is something awkward about him, even from here.",
+        "Perhaps he thinks everybody has noticed.",
+        "It is difficult not to notice someone who seems that uneasy."
+      ]
+    },
+    {
+      "id": "seated-company",
+      "group": "seated",
+      "speakers": [
+        "F",
+        "G"
+      ],
+      "playOnce": true,
+      "lines": [
+        "Would you want the man in blue in our group?",
+        "I would have no idea how to make conversation with him.",
+        "It feels as though every word would need explaining.",
+        "I would rather keep this between the two of us."
+      ]
+    },
+    {
+      "id": "front-belonging",
+      "group": "front",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "playOnce": true,
+      "lines": [
+        "Do you think he feels like he belongs at this exhibition?",
+        "He gives the impression that he wandered into the wrong place.",
+        "Everyone else seems so much more comfortable.",
+        "Being around him would make me self-conscious too."
+      ]
+    },
+    {
+      "id": "rear-impression",
+      "group": "rear",
+      "speakers": [
+        "C",
+        "D",
+        "E"
+      ],
+      "playOnce": true,
+      "lines": [
+        "There is something about the blue man that I cannot quite place.",
+        "He seems like someone who rehearses every introduction.",
+        "And then worries about it for the rest of the evening.",
+        "That must make even a simple conversation feel strange."
+      ]
+    },
+    {
+      "id": "seated-silence",
+      "group": "seated",
+      "speakers": [
+        "F",
+        "G"
+      ],
+      "playOnce": true,
+      "lines": [
+        "I keep wondering what we would even talk about with him.",
+        "It would be one of those silences that feels much too long.",
+        "Then someone would have to rescue the conversation.",
+        "I do not want that to become my responsibility."
+      ]
+    },
+    {
+      "id": "front-confidence",
+      "group": "front",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "playOnce": true,
+      "lines": [
+        "The man in blue does not strike me as very confident.",
+        "He has that air of waiting for somebody else to decide for him.",
+        "I would not know how to put him at ease.",
+        "Perhaps keeping our distance is simpler."
+      ]
+    },
+    {
+      "id": "rear-invitation",
+      "group": "rear",
+      "speakers": [
+        "C",
+        "D",
+        "E"
+      ],
+      "playOnce": true,
+      "lines": [
+        "Would he expect an invitation to join us?",
+        "I hope he does not assume we have something in common.",
+        "We barely know anything about him.",
+        "Yet I already feel this would be an uncomfortable introduction."
+      ]
+    },
+    {
+      "id": "seated-opinion",
+      "group": "seated",
+      "speakers": [
+        "F",
+        "G"
+      ],
+      "playOnce": true,
+      "lines": [
+        "What if the blue man asked for our opinion?",
+        "I would struggle to give an answer that sounded natural.",
+        "He seems like he would search for a hidden meaning in it.",
+        "It is easier when a conversation does not take so much effort."
+      ]
+    },
+    {
+      "id": "front-afterwards",
+      "group": "front",
+      "speakers": [
+        "A",
+        "B"
+      ],
+      "playOnce": true,
+      "lines": [
+        "I wonder how the blue man imagines he comes across.",
+        "Probably quite differently from the impression he gives us.",
+        "There is an uneasiness about him that stays with you.",
+        "I think I would remember that more than anything he might say."
+      ]
+    }
+  ],
+  "atmosphere": {
+    "calm": "A peaceful spacious art gallery interior, gentle ventilation, distant soft footsteps, warm quiet room tone, subtle indistinct conversation far away. No intelligible speech, no music, no sudden sounds. Seamless ambient loop.",
+    "tense": "An imagined overlapping internal crowd murmur, many indistinct hushed voices blending inside the listener's head rather than a conversation in the room. Soft breathy grain, close airy whisper textures, gently rising enclosed room pressure and subtle low room tone. No intelligible words, no melody or music, no screams, no sudden impacts or sharp transients. Restrained continuous texture for a seamless ambient loop."
+  }
+}

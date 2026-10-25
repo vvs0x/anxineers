@@ -6,12 +6,30 @@
   "description": "WebXR health-education tool about anxiety. Calm room that reacts to head gaze.",
   "scripts": {
     "start": "node server.js",
-    "test": "node test/headless.cjs && node test/flow.cjs"
+    "test": "node --test test/choreography.mjs test/audio-node.mjs test/group-view.mjs test/pov-blackout.mjs test/session-node.mjs test/journey-node.mjs test/look-controls.mjs test/wall-gaze.mjs test/xr-input.mjs test/furniture-gaze.mjs && node test/environment.mjs && node test/wall-collisions.mjs && node test/wall-room.mjs && node test/rear-sculpture.mjs && node test/exploration.mjs && node test/character.mjs && node test/character-opening.mjs && node test/character-shaders.mjs && node test/seating.mjs && node test/visitors.mjs && node test/showcase.mjs",
+    "test:browser": "node test/headless.cjs && node test/flow.cjs",
+    "audio:prepare-fear": "node scripts/prepare-fear-audio.mjs",
+    "audio:build-fear": "node scripts/build-fear-soundscape.mjs",
+    "audio:plan": "node scripts/generate-audio.mjs --dry-run",
+    "audio:generate": "node scripts/generate-audio.mjs",
+    "audio:voices": "node scripts/generate-audio.mjs --voices",
+    "test:audio": "node --test test/choreography.mjs test/audio-node.mjs test/group-view.mjs",
+    "test:guide": "node --test test/guide-node.mjs test/session-node.mjs test/journey-node.mjs test/audio-node.mjs test/xr-input.mjs",
+    "test:spectator": "node --test test/spectator-node.mjs",
+    "test:spectator:browser": "node test/spectator-browser.cjs"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "express": "^5.1.0",
     "selfsigned": "^5.0.0",
-    "three": "^0.180.0"
+    "three": "^0.180.0",
+    "three-mesh-bvh": "0.9.16",
+    "tone": "15.1.22",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
   }
 }
